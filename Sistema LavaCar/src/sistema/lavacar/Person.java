@@ -15,13 +15,13 @@ import java.util.Scanner;
  * @author Rodrigo Alves Guerra, Gabriel Eugenio Brito, Caio
  */
 public class Person implements Serializable {
-    public String name,
-                  rg,
+    public String name, rg,
                   anddress,
                   phone1,
-                  phone2;
-    public SimpleDateFormat dateOfInsert,
-                    dateOfBorn;
+                  phone2,
+                  dateOfInsert,
+                  dateOfBorn;
+    SimpleDateFormat dateToday;
     public Person(){
         Scanner input = new Scanner (System.in);
 
@@ -40,6 +40,7 @@ public class Person implements Serializable {
         System.out.print("Telefone2 .: ");
         phone2 = input.nextLine();
 
-        dateOfInsert = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        dateToday = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        dateOfInsert = dateToday.format(new Date());
     }
 }
