@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- *
  * @author Rodrigo Alves Guerra, Gabriel Eugenio Brito, Caio
  */
 public class SistemaLavaCar {
@@ -22,57 +21,58 @@ public class SistemaLavaCar {
     
       
     public static void main(String[] args) throws FileNotFoundException{
-        int answer, answerCustomers;
+        Scanner input = new Scanner (System.in);
+        
         ArrayList<Customers> people = new ArrayList<>();
         
-        // first read data from system
+        // Lê as informações do sistema
         WorkingFile files = new WorkingFile();
   
-        // read data from customers
+        // Lê as informações dos clientes
         people = (ArrayList<Customers>) files.readCustumers(people, "customers");
         
-        answer = 9;
-        Scanner input = new Scanner (System.in);
-        while(answer > 0){
+        int answer, answerCustomers;
+        do{
             switch(answer){
-                case 1 : // insert cliente
-                    System.out.println("Digite 1 Cadastro De Cliente\n" +
-                                       "Digite 2 Listar Clientes Cadastrados\n" +
-                                       "ou  0  para voltar ao menu inicial .:");
+                case 1 : // Clientes
+                    System.out.println("(1) Cadastro De Cliente";
+                    System.out.println("(2) Listar Clientes Cadastrados";
+                    System.out.println("(0) Voltar ao menu inicial");
                     answerCustomers = input.nextInt();
                     switch(answerCustomers){
                         case 1:
                             Customers person = new Customers(); 
                             people.add(person);
-                        break;
+                            break;
                         case 2:
-                            
-                            for(Customers p : people){
-                                System.out.println("Name .:" + p.name);
-                                System.out.println("RG .:" + p.rg);
-                                System.out.println("Phone1 .:" + p.phone1);
-                                System.out.println("Phone1 .:" + p.phone2);
-                                System.out.println("Andress .:" + p.anddress);
-                                System.out.println("DateOfInsert" + p.dateOfInsert);
+                            for(Customers p : people){ /* Qual é a condição desse for? */
+                                System.out.println("Nome: " + p.name);
+                                System.out.println("RG: " + p.rg);
+                                System.out.println("Fone1: " + p.phone1);
+                                System.out.println("Fone1: " + p.phone2);
+                                System.out.println("Endereço: " + p.anddress);
+                                System.out.println("Data de cadastro: " + p.dateOfInsert);
                             }
-                        break;
+                            break;
                         default:
-                            answer = 9;
-                        break;
+                            System.out.println("Opcao invalida.");
                     }
-                break;
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
                 default:
-                    System.out.println("Digite 1 Gerenciamento De Clientes\n" +
-                                       "Digite 2 Gerenciamento De Veículos\n" + 
-                                       "Digite 3 Salvar Estado Do Sistema\n" +
-                                       "ou  0  para sair .:");
+                    System.out.println("(1) Gerenciamento de Clientes";
+                    System.out.println("(2) Gerenciamento de Veículos"; 
+                    System.out.println("(3) Salvar Estado do Sistema";
+                    System.out.println("(0) Sair");
                     answer = input.nextInt();
-                break;
             }
-        }
+        } while(answer != 0)
         
-        //save data from customers
-        files.write(people, "customers");
+        //Salva as informações dos clientes
+        files.write(people, "customers"); /* Essa parte é o case 3 (Salvar Estado do Sistema)? */
     }
     
 }
