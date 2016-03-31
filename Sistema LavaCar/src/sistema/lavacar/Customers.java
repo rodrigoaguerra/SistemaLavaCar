@@ -5,15 +5,20 @@
  */
 package sistema.lavacar;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 /**
  *
  * @author rodrigo
  */
-public class Customers extends Person {
-    //Vehicles[]vehicles = new Vehicles [20];
+public class Customers extends Person implements Serializable {
+    ArrayList<Vehicles> vehiclesOfCustomer = new ArrayList<>();
+    
     public Customers(){
-        
-        
+        Vehicles vehicle = new Vehicles();
+        vehiclesOfCustomer.add(vehicle);
     }
 }
+
 
