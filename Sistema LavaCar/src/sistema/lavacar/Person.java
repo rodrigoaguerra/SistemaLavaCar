@@ -1,13 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sistema.lavacar;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -16,12 +9,14 @@ import java.util.Scanner;
  */
 public class Person implements Serializable {
     public String name, rg,
-                  anddress,
+                  address,
                   phone1,
                   phone2,
-                  dateOfInsert,
                   dateOfBorn;
-    SimpleDateFormat dateToday;
+          /* Eu acho que não precisa do DateOfInsert na classe pessoa, seja ele a primeira vez que a pessoa veio
+          ao lavacar ou o dia em que ela lavou o carro. Faz mais sentido colocar isso nos funcionários
+          (quando foi contratado) e nos veículos (quando o carro foi lavado) */
+
     public Person(){
         Scanner input = new Scanner (System.in);
 
@@ -40,7 +35,10 @@ public class Person implements Serializable {
         System.out.print("Telefone2 .: ");
         phone2 = input.nextLine();
 
-        dateToday = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-        dateOfInsert = dateToday.format(new Date());
+        System.out.print("Data de nascimento (DD MM AA) .: ");
+        int dia = input.nextInt();
+        int mes = input.nextInt();
+        int ano = input.nextInt();
+        dateOfBorn = dia + "/" + mes + "/" + ano;
     }
 }
