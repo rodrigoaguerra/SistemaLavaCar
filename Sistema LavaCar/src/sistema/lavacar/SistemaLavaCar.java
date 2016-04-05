@@ -25,12 +25,14 @@ public class SistemaLavaCar {
         Scanner input = new Scanner (System.in);
         
         ArrayList<Customers> people = new ArrayList<>();
+        ArrayList<Employee> employees  = new ArrayList<>();
         
         // Lê as informações do sistema
         WorkingFile files = new WorkingFile();
   
-        // Lê as informações dos clientes
-        people = (ArrayList<Customers>) files.readCustumers(people, "customers");
+        // Lê as informações dos clientes, funcionários
+        people = (ArrayList<Customers>) files.read(people, "customers");
+        employees = (ArrayList<Employee>) files.read(employees, "employees");
         
         int answer = 0, answerCustomers;
         do{
@@ -41,6 +43,9 @@ public class SistemaLavaCar {
                     System.out.println("(0) Voltar ao menu inicial");
                     answerCustomers = input.nextInt();
                     switch(answerCustomers){
+                        case 0:
+                            answer = 9;
+                            break;
                         case 1:
                             Customers person = new Customers(); 
                             people.add(person);
@@ -69,18 +74,51 @@ public class SistemaLavaCar {
                     break;
                 case 3:
                     break;
+                case 4:
+                    System.out.println("(1) Cadastro De Funcionário");
+                    System.out.println("(2) Listar Funcionários Cadastrados");
+                    System.out.println("(0) Voltar ao menu inicial");
+                    answerCustomers = input.nextInt();
+                    switch(answerCustomers){
+                        case 0:
+                            answer = 9;
+                            break;
+                        case 1:
+                            Employee p = new Employee(); 
+                            employees.add(p);                            
+                            break;
+                        case 2:
+                            for(Employee em : employees){ /* Qual é a condição desse for? */
+                                System.out.println("Nome: " + em.name);
+                                System.out.println("RG: " + em.rg);
+                                System.out.println("Celular: " + em.phone1);
+                                System.out.println("Telefone: " + em.phone2);
+                                System.out.println("Endereço: " + em.anddress);
+                                System.out.println("Cpf: " + em.cpf);
+                                System.out.println("Dia De Aniversário: " + em.dateOfBorn);
+                                System.out.println("Data De Cadastro: " + em.dateOfInsert);
+                            }
+                            break;
+                        default:
+                            System.out.println("Opcao invalida.");
+                    }
+                    break;
                 default:
                     System.out.println("(1) Gerenciamento de Clientes");
                     System.out.println("(2) Gerenciamento de Veículos");
+                    System.out.println("(3) Gerenciamento de Serviços");
+                    System.out.println("(4) Gerenciamento de Funcionários");
+                    System.out.println("(2) Gerenciamento de Relatórios");
                     System.out.println("(0) Sair");
+                    
                     answer = input.nextInt();
             }
         }while(answer > 0);
         
         //Salva as informações dos clientes
         files.write(people, "customers"); /* Essa parte é o case 3 (Salvar Estado do Sistema)? */
+        files.write(employees, "employees");
     }
     
 }
-
 

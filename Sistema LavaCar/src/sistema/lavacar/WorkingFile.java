@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class WorkingFile {
     
-    public ArrayList readCustumers(ArrayList obj, String nameFile) throws FileNotFoundException
+    public ArrayList read(ArrayList obj, String nameFile) throws FileNotFoundException
     {     
         try {
             FileInputStream readFile = new FileInputStream("data/" + nameFile +".bin");       
@@ -27,8 +27,7 @@ public class WorkingFile {
             obj = (ArrayList) stream.readObject();
             stream.close();
         } catch (Exception e) {
-            System.out.println("Não foi possivel carregar os clientes ...");
-            //e.printStackTrace();
+            System.out.println("Não foi possivel carregar o arquivo " + nameFile);
         }
         return obj;
     }
@@ -41,7 +40,7 @@ public class WorkingFile {
             stream.writeObject(obj);
             stream.close();
         } catch (Exception exc) {
-            exc.printStackTrace();
+            System.out.println("Não foi possivel gravar o arquivo " + nameFile);
         }      
     }
 }
