@@ -1,5 +1,5 @@
 # SistemaLavaCar
-**autor**: Rodrigo Alves Guerra, Gabriel Eugenio Brito, Caio Ormond Araujo
+**autores**: Rodrigo Alves Guerra, Gabriel Eugenio Brito, Caio Ormond Araujo
 
 ## Resumo
 
