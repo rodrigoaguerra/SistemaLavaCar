@@ -34,7 +34,8 @@ public class SistemaLavaCar {
         people = (ArrayList<Customers>) files.read(people, "customers");
         employees = (ArrayList<Employee>) files.read(employees, "employees");
         
-        int answer = 0, answerCustomers;
+        int answer = 0, answerCustomers, answerVehicles;
+        string name;
         do{
             switch(answer){
                 case 1 : // Clientes
@@ -43,21 +44,21 @@ public class SistemaLavaCar {
                     System.out.println("(0) Voltar ao menu inicial");
                     answerCustomers = input.nextInt();
                     switch(answerCustomers){
-                        case 0:
-                            answer = 9;
-                            break;
                         case 1:
                             Customers person = new Customers(); 
                             people.add(person);
                             break;
                         case 2:
-                            for(Customers p : people){ /* Qual é a condição desse for? */
+                            for(Customers p : people){ /* Nesse for, p é uma variável temporária,
+                                                       que vai percorrendo o arraylist people, enquanto
+                                                       tiver objetos para ler? */
                                 System.out.println("Nome: " + p.name);
                                 System.out.println("RG: " + p.rg);
-                                System.out.println("Celular: " + p.phone1);
-                                System.out.println("Telefone: " + p.phone2);
-                                System.out.println("Endereço: " + p.anddress);
+                                System.out.println("Telefone 1: " + p.phone1);
+                                System.out.println("Telefone 2: " + p.phone2);
+                                System.out.println("Endereço: " + p.address);
                                 System.out.println("Data de cadastro: " + p.dateOfInsert);
+                                System.out.println("Data de nascimento: " + p.dateOfBorn);
                                 for(Vehicles v : p.vehiclesOfCustomer){ 
                                     System.out.println("Placa: " + v.board);
                                     System.out.println("Marca: " + v.brand);
@@ -66,11 +67,44 @@ public class SistemaLavaCar {
                                 }
                             }
                             break;
+                        case 0:
+                            answer = 9;
+                            break;
                         default:
                             System.out.println("Opcao invalida.");
                     }
                     break;
                 case 2:
+                    /* Gerenciamento de veículos*/
+                    System.out.println("(1) Cadastro de Veículo");
+                    System.out.println("(2) Listar veículos de um cliente");
+                    System.out.println("(0) Voltar ao menu inicial");
+                    answerVehicles = input.nextInt();
+                    switch(answerVehicles){
+                        case 1:
+                            System.out.print("Digite o nome do proprietario: ");
+                            name = input.nextLine();
+                            /* Procura o nome no Arraylist, depois pede as informações do
+                            veículo e guarda no Arraylist de veículos do cliente */
+                            break;
+                        case 2:
+                            System.out.print("Digite o nome do proprietario: ");
+                            name = input.nextLine();
+                            /* Procura o nome no Arraylist, depois imprime os veículos dele.
+                            for(Vehicles v: name.vehiclesOfCostumer){
+                                System.out.println("Placa: " + v.board);
+                                System.out.println("Marca: " + v.brand);
+                                System.out.println("Modelo: " + v.model);
+                                System.out.println("Data de cadastro: " + v.dateOfInsert);
+                            }
+                            */
+                            break;
+                        case 0:
+                            answer = 9;
+                            break;
+                        default:
+                            System.out.println("Opcao invalida.");
+                    }
                     break;
                 case 3:
                     break;
@@ -80,15 +114,12 @@ public class SistemaLavaCar {
                     System.out.println("(0) Voltar ao menu inicial");
                     answerCustomers = input.nextInt();
                     switch(answerCustomers){
-                        case 0:
-                            answer = 9;
-                            break;
                         case 1:
                             Employee p = new Employee(); 
                             employees.add(p);                            
                             break;
                         case 2:
-                            for(Employee em : employees){ /* Qual é a condição desse for? */
+                            for(Employee em : employees){
                                 System.out.println("Nome: " + em.name);
                                 System.out.println("RG: " + em.rg);
                                 System.out.println("Celular: " + em.phone1);
