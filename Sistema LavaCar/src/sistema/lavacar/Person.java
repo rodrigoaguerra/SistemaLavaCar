@@ -42,5 +42,12 @@ public class Person implements Serializable {
 
         dateToday = new SimpleDateFormat("dd/MM/yyyy hh:mm");
         dateOfInsert = dateToday.format(new Date());
+        
+        System.out.print("Data de nascimento (DD MM AA) .: ");  
+        int dia = input.nextInt();  
+        int mes = input.nextInt();  
+        int ano = input.nextInt();  
+        dateOfBorn = dia + "/" + mes + "/" + ano;  
+
     }
 }
