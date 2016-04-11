@@ -20,7 +20,7 @@ public class Person implements Serializable {
                   phone1,
                   phone2,
                   dateOfInsert,
-                  dateOfBorn;
+                  dateOfBirth;
     SimpleDateFormat dateToday;
     public Person(){
         Scanner input = new Scanner (System.in);
@@ -47,7 +47,7 @@ public class Person implements Serializable {
         int dia = input.nextInt();  
         int mes = input.nextInt();  
         int ano = input.nextInt();  
-        dateOfBorn = dia + "/" + mes + "/" + ano;  
+        dateOfBirth = dia + "/" + mes + "/" + ano;  
 
     }
 }
