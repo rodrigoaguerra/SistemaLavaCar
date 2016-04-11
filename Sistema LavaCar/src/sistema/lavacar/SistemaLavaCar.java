@@ -38,7 +38,7 @@ public class SistemaLavaCar {
         string name;
         do{
             switch(answer){
-                case 1 : // Clientes
+                case 1 : // Gerenciamento de clientes
                     System.out.println("(1) Cadastro De Cliente");
                     System.out.println("(2) Listar Clientes Cadastrados");
                     System.out.println("(0) Voltar ao menu inicial");
@@ -74,8 +74,7 @@ public class SistemaLavaCar {
                             System.out.println("Opcao invalida.");
                     }
                     break;
-                case 2:
-                    /* Gerenciamento de veículos*/
+                case 2: //Gerenciamento de veículos
                     System.out.println("(1) Cadastro de Veículo");
                     System.out.println("(2) Listar veículos de um cliente");
                     System.out.println("(0) Voltar ao menu inicial");
@@ -106,9 +105,9 @@ public class SistemaLavaCar {
                             System.out.println("Opcao invalida.");
                     }
                     break;
-                case 3:
+                case 3: //Gerenciamento de serviços
                     break;
-                case 4:
+                case 4: //Gerenciamento de funcionários
                     System.out.println("(1) Cadastro De Funcionário");
                     System.out.println("(2) Listar Funcionários Cadastrados");
                     System.out.println("(0) Voltar ao menu inicial");
@@ -147,7 +146,7 @@ public class SistemaLavaCar {
         }while(answer > 0);
         
         //Salva as informações dos clientes
-        files.write(people, "customers"); /* Essa parte é o case 3 (Salvar Estado do Sistema)? */
+        files.write(people, "customers");
         files.write(employees, "employees");
     }
     
