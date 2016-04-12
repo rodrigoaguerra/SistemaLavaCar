@@ -16,11 +16,11 @@ import java.util.Scanner;
  */
 public class Person implements Serializable {
     public String name, rg,
-                  anddress,
+                  dateOfBirth,
+                  address,
                   phone1,
                   phone2,
-                  dateOfInsert,
-                  dateOfBirth;
+                  dateOfInsert;
     SimpleDateFormat dateToday;
     public Person(){
         Scanner input = new Scanner (System.in);
@@ -30,9 +30,16 @@ public class Person implements Serializable {
 
         System.out.print("RG .: ");
         rg = input.nextLine();
+        
+        System.out.print("Data de nascimento (DD MM AA) .: ");  
+        int dia = input.nextInt();  
+        int mes = input.nextInt();  
+        int ano = input.nextInt();  
+        input.nextLine();
+        dateOfBirth = dia + "/" + mes + "/" + ano;  
 
         System.out.print("Endereço .: ");
-        anddress = input.nextLine();
+        address = input.nextLine();
 
         System.out.print("Telefone1 .: ");
         phone1 = input.nextLine();
@@ -42,12 +49,5 @@ public class Person implements Serializable {
 
         dateToday = new SimpleDateFormat("dd/MM/yyyy hh:mm");
         dateOfInsert = dateToday.format(new Date());
-        
-        System.out.print("Data de nascimento (DD MM AA) .: ");  
-        int dia = input.nextInt();  
-        int mes = input.nextInt();  
-        int ano = input.nextInt();  
-        dateOfBirth = dia + "/" + mes + "/" + ano;  
-
     }
 }
