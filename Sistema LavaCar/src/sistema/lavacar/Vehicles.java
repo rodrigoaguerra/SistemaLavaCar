@@ -21,7 +21,7 @@ public class Vehicles implements Serializable {
     public Vehicles(){
         Scanner input = new Scanner (System.in);
 
-        System.out.ptinln("\tInformaçoes do veiculo");
+        System.out.println("\tInformaçoes do veiculo");
         System.out.print("Placa .: ");
         board = input.nextLine();
 
@@ -31,7 +31,7 @@ public class Vehicles implements Serializable {
         System.out.print("Modelo .: ");
         model = input.nextLine();
         
-        System.out.ptin("Ano .: ");
+        System.out.print("Ano .: ");
         year = input.nextLine();
         
         System.out.print("Cor .: ");
@@ -46,5 +46,17 @@ public class Vehicles implements Serializable {
         dateToday = new SimpleDateFormat("dd/MM/yyyy hh:mm");
         dateOfInsert = dateToday.format(new Date()); 
     }
+    public String gerarRelatorio()
+    {
+        String rel = "";
+        /*nome = dono.getNome()? Vai depender de como é a associação entre
+        cliente e veículo.
+        rel = rel + "Proprietario: " + nome + "\n";
+        */
+        rel = rel + "Marca: " + brand + "\tModelo: " + model + "\n";
+        rel = rel + "Ano: " + year + "\tCor: " + color + "\n";
+        rel = rel + "Data de cadastro: " + dateOfInsert + "\n";
+        rel = rel + "Descrição: " + description + "\n";
+        return rel;
+    }
 }
-
