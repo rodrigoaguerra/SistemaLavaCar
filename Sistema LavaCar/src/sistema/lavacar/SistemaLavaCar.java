@@ -27,12 +27,12 @@ public class SistemaLavaCar {
         ArrayList<Customers> people = new ArrayList<>();
         ArrayList<Employee> employees  = new ArrayList<>();
         
-        // Lê as informações do sistema
-        WorkingFile files = new WorkingFile();
+        //Objeto da classe WorkingFile
+        //WorkingFile files = new WorkingFile();
   
         // Lê as informações dos clientes, funcionários
-        people = (ArrayList<Customers>) files.read(people, "customers");
-        employees = (ArrayList<Employee>) files.read(employees, "employees");
+        people = (ArrayList<Customers>) WorkingFile.read(people, "customers");
+        employees = (ArrayList<Employee>) WorkingFile.read(employees, "employees");
         
         int answer = 0, answerCustomers, answerVehicles;
         string name;
@@ -146,8 +146,8 @@ public class SistemaLavaCar {
         }while(answer > 0);
         
         //Salva as informações dos clientes
-        files.write(people, "customers");
-        files.write(employees, "employees");
+        WorkingFiles.write(people, "customers");
+        WorkingFiles.write(employees, "employees");
     }
     
 }
