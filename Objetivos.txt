@@ -1,8 +1,10 @@
 
+Conforme formos implementando, vamos ir anotando o que está pronto
+
  1. Cadastro de clientes - 10 PONTOS
 (OK)  Cadastro
 (OK)  Listar os clientes cadastrados
-    
+
  2. Cadastro de veículos - 10 PONTOS
  ()  Cadastro
  ()  Listar os veículos de um cliente
@@ -31,5 +33,6 @@
  
  10. Salvamento dos dados (cadastros, estoque de insumos) - 10 PONTOS~
  ()  Salvar cadastros
+ ()  Salvar estoque de insumos
 
 OBS: prever o salvamento de todos os dados (cadastros, estoque de insumos, etc.) em arquivos
