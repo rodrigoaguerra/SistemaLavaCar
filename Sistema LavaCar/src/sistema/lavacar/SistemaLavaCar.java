@@ -14,58 +14,69 @@ import java.util.Scanner;
  * @author Rodrigo Alves Guerra, Gabriel Eugenio Brito, Caio
  */
 public class SistemaLavaCar {
-    private String cnpj; 
     private String name_company;
-    private String anddress_company;
+    private String address_company;
     private String phone_company;
-    private String logo_company;
-    
+    private String site_company;
+    private String cnpj; 
+   /* private String logo_company; Não seria slogan? */
       
+    /*
+    Pensei em fazer uma construtora para a classe principal, dando os valores
+    da companhia (nome, phone, cnpj...), mas não deu certo.
+    
+    public SistemaLavaCar()
+    {
+        Scanner input = new Scanner (System.in);
+        
+        System.out.println("\tINFORMACOES DA EMPRESA");
+        System.out.print("Nome: ");
+        name_company = input.nextLine();
+        System.out.print("Endereço: ");
+        address_company = input.nextLine();
+        System.out.print("Telefone: ");
+        phone_company = input.nextLine();
+        System.out.print("Site: ");
+        site_company = input.nextLine();
+        System.out.print("CNPJ: ");
+        cnpj = input.nextLine();
+    }*/
     public static void main(String[] args) throws FileNotFoundException{
         Scanner input = new Scanner (System.in);
         
         ArrayList<Customers> people = new ArrayList<>();
         ArrayList<Employee> employees  = new ArrayList<>();
-        
-        //Objeto da classe WorkingFile
-        //WorkingFile files = new WorkingFile();
-  
+
         // Lê as informações dos clientes, funcionários
         people = (ArrayList<Customers>) WorkingFile.read(people, "customers");
         employees = (ArrayList<Employee>) WorkingFile.read(employees, "employees");
         
-        int answer = 0, answerCustomers, answerVehicles;
-        string name;
+        int answer = 0, //Reposta do menu principal
+            answer2; //Resposta dos sub-menus
+        String name, rel;
         do{
             switch(answer){
                 case 1 : // Gerenciamento de clientes
-                    System.out.println("(1) Cadastro De Cliente");
-                    System.out.println("(2) Listar Clientes Cadastrados");
-                    System.out.println("(0) Voltar ao menu inicial");
-                    answerCustomers = input.nextInt();
-                    switch(answerCustomers){
+                    System.out.println("\tCLIENTES");
+                    System.out.println("(1) Cadastrar um novo cliente");
+                    System.out.println("(2) Listar clientes cadastrados");
+                    System.out.println("(0) Voltar ao menu principal");
+                    answer2 = input.nextInt();
+                    switch(answer2){
                         case 1:
                             Customers person = new Customers(); 
                             people.add(person);
+                            System.out.println("Cliente cadastrado com sucesso!");
                             break;
                         case 2:
-                            for(Customers p : people){ /* Nesse for, p é uma variável temporária,
-                                                       que vai percorrendo o arraylist people, enquanto
-                                                       tiver objetos para ler? */
-                                System.out.println("Nome: " + p.name);
-                                System.out.println("RG: " + p.rg);
-                                System.out.println("Telefone 1: " + p.phone1);
-                                System.out.println("Telefone 2: " + p.phone2);
-                                System.out.println("Endereço: " + p.address);
-                                System.out.println("Data de cadastro: " + p.dateOfInsert);
-                                System.out.println("Data de nascimento: " + p.dateOfBorn);
-                                for(Vehicles v : p.vehiclesOfCustomer){ 
-                                    System.out.println("Placa: " + v.board);
-                                    System.out.println("Marca: " + v.brand);
-                                    System.out.println("Modelo: " + v.model);
-                                    System.out.println("Data de cadastro: " + v.dateOfInsert);
+                            System.out.println("\tLISTA DE CLIENTES");
+                            /* Aqui poderíamos imprimir só o nome, para parecer
+                            mais com uma lista. Afinal, todas as informações vão
+                            ficar salvas no relatório depois. */
+                            for(Customers p : people){
+                                rel = p.gerarRelatorio();
+                                System.out.println(rel);
                                 }
-                            }
                             break;
                         case 0:
                             answer = 9;
@@ -75,28 +86,31 @@ public class SistemaLavaCar {
                     }
                     break;
                 case 2: //Gerenciamento de veículos
-                    System.out.println("(1) Cadastro de Veículo");
+                    System.out.println("\tVEICULOS");
+                    System.out.println("(1) Cadastrar veículo em um cliente já existente");
                     System.out.println("(2) Listar veículos de um cliente");
-                    System.out.println("(0) Voltar ao menu inicial");
-                    answerVehicles = input.nextInt();
-                    switch(answerVehicles){
+                    System.out.println("(0) Voltar ao menu principal");
+                    answer2 = input.nextInt();
+                    switch(answer2){
                         case 1:
                             System.out.print("Digite o nome do proprietario: ");
                             name = input.nextLine();
-                            /* Procura o nome no Arraylist, depois pede as informações do
-                            veículo e guarda no Arraylist de veículos do cliente */
+                            /* Procura o nome no Arraylist. Não tenho certeza
+                            como fazer isso ainda.
+                            Depois cria um novo Vehicle, pede as informações
+                            e guarda no Arraylist de veículos do cliente. */
+                            System.out.println("Veículo cadastrado com sucesso!");
                             break;
                         case 2:
                             System.out.print("Digite o nome do proprietario: ");
                             name = input.nextLine();
-                            /* Procura o nome no Arraylist, depois imprime os veículos dele.
+                            /* Procura o nome no Arraylist de novo. Ainda não
+                            sei como.
+                            
                             for(Vehicles v: name.vehiclesOfCostumer){
-                                System.out.println("Placa: " + v.board);
-                                System.out.println("Marca: " + v.brand);
-                                System.out.println("Modelo: " + v.model);
-                                System.out.println("Data de cadastro: " + v.dateOfInsert);
-                            }
-                            */
+                                rel = v.gerarRelatorio();
+                                System.out.println(rel);
+                            }*/
                             break;
                         case 0:
                             answer = 9;
@@ -106,49 +120,56 @@ public class SistemaLavaCar {
                     }
                     break;
                 case 3: //Gerenciamento de serviços
+                    /* Podemos ter duas opções aqui, realizar serviços e
+                    checar insumos, ou 2 cases separados no menu
+                    principal. */
+                    answer = 9;
                     break;
                 case 4: //Gerenciamento de funcionários
-                    System.out.println("(1) Cadastro De Funcionário");
-                    System.out.println("(2) Listar Funcionários Cadastrados");
-                    System.out.println("(0) Voltar ao menu inicial");
-                    answerCustomers = input.nextInt();
-                    switch(answerCustomers){
+                    System.out.println("\tFUNCIONARIOS");
+                    System.out.println("(1) Cadastrar um novo funcionário");
+                    System.out.println("(2) Listar funcionários Cadastrados");
+                    System.out.println("(0) Voltar ao menu principal");
+                    answer2 = input.nextInt();
+                    switch(answer2){
                         case 1:
                             Employee p = new Employee(); 
-                            employees.add(p);                            
+                            employees.add(p);
+                            System.out.println("Funcionario contratado com sucesso!");
                             break;
                         case 2:
+                            System.out.println("\tLISTA DE FUNCIONARIOS");
                             for(Employee em : employees){
-                                System.out.println("Nome: " + em.name);
-                                System.out.println("RG: " + em.rg);
-                                System.out.println("Celular: " + em.phone1);
-                                System.out.println("Telefone: " + em.phone2);
-                                System.out.println("Endereço: " + em.anddress);
-                                System.out.println("Cpf: " + em.cpf);
-                                System.out.println("Dia De Aniversário: " + em.dateOfBorn);
-                                System.out.println("Data De Cadastro: " + em.dateOfInsert);
+                                rel = em.gerarRelatorio();
+                                System.out.println(rel);
                             }
+                            break;
+                        case 0:
+                            answer = 9;
                             break;
                         default:
                             System.out.println("Opcao invalida.");
                     }
                     break;
+                case 5:
+                    answer = 9;
+                    break;
                 default:
-                    System.out.println("(1) Gerenciamento de Clientes");
-                    System.out.println("(2) Gerenciamento de Veículos");
-                    System.out.println("(3) Gerenciamento de Serviços");
-                    System.out.println("(4) Gerenciamento de Funcionários");
-                    System.out.println("(2) Gerenciamento de Relatórios");
+                    System.out.println("\tMENU PRINCIPAL");
+                    /*Posteriormente pode ser o name_company*/
+                    System.out.println("(1) Clientes");
+                    System.out.println("(2) Veículos");
+                    System.out.println("(3) Serviços");
+                    System.out.println("(4) Funcionários");
+                    System.out.println("(5) Relatórios");
                     System.out.println("(0) Sair");
-                    
                     answer = input.nextInt();
             }
+            System.out.println("");
         }while(answer > 0);
         
-        //Salva as informações dos clientes
+        //Salva os clientes e seus veículos em um arquivo e os empregados em outro
         WorkingFile.write(people, "customers");
         WorkingFile.write(employees, "employees");
     }
-    
 }
-
