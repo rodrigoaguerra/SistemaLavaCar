@@ -19,6 +19,17 @@ public class Customers extends Person implements Serializable {
         Vehicles vehicle = new Vehicles();
         vehiclesOfCustomer.add(vehicle);
     }
+    public String gerarRelatorio()
+    {
+        String rel = "";
+        rel = rel + "Nome: " + name + "\tRG: " + rg + "\tData de nascimento: " +
+                dateOfBirth + "\n";
+        rel = rel + "Telefone 1: " + phone1 + "\tTelefone 2: " + phone2 + "\n";
+        rel = rel + "Endereço: " + address;
+        rel = rel + "Data de cadastro: " + dateOfInsert + "\n";
+        return rel;
+    }
 }
+
 
 
