@@ -146,8 +146,8 @@ public class SistemaLavaCar {
         }while(answer > 0);
         
         //Salva as informações dos clientes
-        WorkingFiles.write(people, "customers");
-        WorkingFiles.write(employees, "employees");
+        WorkingFile.write(people, "customers");
+        WorkingFile.write(employees, "employees");
     }
     
 }
