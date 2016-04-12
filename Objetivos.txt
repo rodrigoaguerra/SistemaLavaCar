@@ -1,0 +1,35 @@
+
+ 1. Cadastro de clientes - 10 PONTOS
+(OK)  Cadastro
+(OK)  Listar os clientes cadastrados
+    
+ 2. Cadastro de veículos - 10 PONTOS
+ ()  Cadastro
+ ()  Listar os veículos de um cliente
+ 
+ 3. Efetuação de serviços - 5 PONTOS
+ ()  ????
+
+ 4. Cadastro de funcionários - 10 PONTOS
+ ()  Cadastro
+ ()  Listar os funcionários cadastrados
+ 
+ 5. Gerenciamento de insumos - 10 PONTOS
+ ()  ???
+ 
+ 6. Estimativa de tempo de espera - 10 PONTOS
+ ()  ???
+ 
+ 7. Diagnostico do veículo e serviços futuros - 10 PONTOS
+ ()  ???
+ 
+ 8. Geração de relatórios - 10 PONTOS
+ ()  Gerar
+
+ 9. Qualidade do relatório final (adequação ao documento de regras) - 15 PONTOS
+ ()  Later
+ 
+ 10. Salvamento dos dados (cadastros, estoque de insumos) - 10 PONTOS~
+ ()  Salvar cadastros
+
+OBS: prever o salvamento de todos os dados (cadastros, estoque de insumos, etc.) em arquivos
