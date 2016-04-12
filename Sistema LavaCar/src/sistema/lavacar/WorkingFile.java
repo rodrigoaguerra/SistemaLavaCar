@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 public class WorkingFile {
     
-    public ArrayList read(ArrayList obj, String nameFile) throws FileNotFoundException
+    public static ArrayList read(ArrayList obj, String nameFile) throws FileNotFoundException
     {     
         try {
             FileInputStream readFile = new FileInputStream("data/" + nameFile +".bin");       
@@ -32,7 +32,7 @@ public class WorkingFile {
         return obj;
     }
         
-    public void write(ArrayList obj, String nameFile) throws FileNotFoundException
+    public static void write(ArrayList obj, String nameFile) throws FileNotFoundException
     {
         try {
             FileOutputStream saveFile = new FileOutputStream("data/" + nameFile +".bin");
