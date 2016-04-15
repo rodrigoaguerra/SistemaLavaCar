@@ -57,4 +57,16 @@ public class Person implements Serializable {
     {
         return name;
     }
+    public void setAddress(String address)
+    {
+        this.address = address;
+    }
+    public void setPhone1(String phone1)
+    {
+        this.phone1 = phone1;
+    }
+    public void setPhone2(String phone2)
+    {
+        this.phone2 = phone2;
+    }
 }
