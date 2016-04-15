@@ -6,8 +6,6 @@
 package sistema.lavacar;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -15,28 +13,36 @@ import java.util.Scanner;
  * @author Rodrigo Alves Guerra, Gabriel Eugenio Brito, Caio
  */
 public class Person implements Serializable {
-    public String name, rg,
-                  dateOfBirth,
-                  address,
-                  phone1,
-                  phone2,
-                  dateOfInsert;
-    SimpleDateFormat dateToday;
+    protected final String name;
+    protected final String rg;
+    protected final String cpf;
+    protected String address;
+    protected String phone1;
+    protected String phone2;
+    protected final String dateOfBirth;
+    /* Se os atributos forem private, não dá para acessar nos objetos
+    customer e employee. O Protected deixa visível para as sub-classes.
+    É um public mais restrito pelo que eu entendi. */
+      
     public Person(){
         Scanner input = new Scanner (System.in);
-
+        
         System.out.print("Nome .: ");
         name = input.nextLine();
 
         System.out.print("RG .: ");
         rg = input.nextLine();
         
-        System.out.print("Data de nascimento (DD MM AA) .: ");  
-        int dia = input.nextInt();  
-        int mes = input.nextInt();  
-        int ano = input.nextInt();  
-        input.nextLine();
-        dateOfBirth = dia + "/" + mes + "/" + ano;  
+        System.out.print("CPF .: ");
+        cpf = input.nextLine();
+        
+        System.out.print("Data de nascimento (DD MM AA).: ");   
+        int dia = input.nextInt();
+        int mes = input.nextInt();
+        int ano = input.nextInt();
+        input.nextLine(); //Tira o \n
+        /* É melhor como int para poder verificar se é válida */
+        dateOfBirth = dia + "/" + mes + "/" + ano;
 
         System.out.print("Endereço .: ");
         address = input.nextLine();
@@ -46,8 +52,9 @@ public class Person implements Serializable {
 
         System.out.print("Telefone2 .: ");
         phone2 = input.nextLine();
-
-        dateToday = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-        dateOfInsert = dateToday.format(new Date());
+    }
+    public String getName()
+    {
+        return name;
     }
 }
