@@ -6,30 +6,55 @@
 package sistema.lavacar;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
  * @author rodrigo
  */
-public class Customers extends Person implements Serializable {
-    ArrayList<Vehicles> vehiclesOfCustomer = new ArrayList<>();
-    
-    public Customers(){
-        Vehicles vehicle = new Vehicles();
+public class Customer extends Person implements Serializable {
+    private final String dateOfInsert;
+    public ArrayList<Vehicle> vehiclesOfCustomer;
+
+    public SimpleDateFormat dateToday;
+
+    public Customer(){
+        dateToday = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        dateOfInsert = dateToday.format(new Date());
+        
+        vehiclesOfCustomer = new ArrayList<>();
+        Vehicle vehicle = new Vehicle();
         vehiclesOfCustomer.add(vehicle);
     }
     public String gerarRelatorio()
     {
         String rel = "";
-        rel = rel + "Nome: " + name + "\tRG: " + rg + "\tData de nascimento: " +
-                dateOfBirth + "\n";
+        rel = rel + "Nome: " + name + "\tRG: " + rg + "\tCPF: " + cpf + "\n";
         rel = rel + "Telefone 1: " + phone1 + "\tTelefone 2: " + phone2 + "\n";
-        rel = rel + "Endereço: " + address;
+        rel = rel + "Endereço: " + address + "\tData de nascimento: " + dateOfBirth + "\n";
         rel = rel + "Data de cadastro: " + dateOfInsert + "\n";
         return rel;
     }
+    public void adicionaVeiculo()
+    {
+        Vehicle vehicle = new Vehicle();
+        vehiclesOfCustomer.add(vehicle);
+    }
+    public void setAddress(String address)
+    {
+        this.address = address;
+    }
+    public void setPhone1(String phone1)
+    {
+        this.phone1 = phone1;
+    }
+    public void setPhone2(String phone2)
+    {
+        this.phone2 = phone2;
+    }
+    public String getName() {
+        return name;
+    }
 }
-
-
-
