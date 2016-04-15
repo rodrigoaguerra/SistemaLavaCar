@@ -178,7 +178,7 @@ public class Company {
         System.out.println("\tFUNCIONARIOS");
         System.out.println("(1) Novo funcionário");
         System.out.println("(2) Listar todos os funcionários");
-        System.out.println("(3) Editar as informações de um funcionário")
+        System.out.println("(3) Editar as informações de um funcionário");
         System.out.println("(0) Voltar ao menu principal");
         int answer = input.nextInt();
         input.nextLine(); //Tira o \n
