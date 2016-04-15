@@ -6,33 +6,27 @@
 package sistema.lavacar;
 
 import java.io.Serializable;
-import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
  * @author rodrigo
  */
 public class Employee  extends Person implements Serializable{
-    String cpf;
+    private final String hiringDate;
     
     public Employee(){
-        Scanner input = new Scanner (System.in);
-
-        System.out.print("Data De Aniversário .: ");
-        dateOfBirth = input.nextLine();
-
-        System.out.print("CPF .: ");
-        cpf = input.nextLine();
+        SimpleDateFormat dateToday = new SimpleDateFormat("dd/MM/yyyy hh:mm");
+        hiringDate = dateToday.format(new Date());
     }
     public String gerarRelatorio()
     {
         String rel = "";
-        rel = rel + "Nome: " + name + "\tRG: " + rg + "\tData de nascimento: " +
-                dateOfBirth + "\n";
+        rel = rel + "Nome: " + name + "\tRG: " + rg + "\tCPF: " + cpf + "\n";
         rel = rel + "Telefone 1: " + phone1 + "\tTelefone 2: " + phone2 + "\n";
-        rel = rel + "Endereço: " + address + "\n";
-        rel = rel + "Data de aniversario: " + dateOfBirth + "\tData de contratação: " +
-                dateOfInsert;
+        rel = rel + "Endereço: " + address + "\tData de nascimento: " + dateOfBirth + "\n";
+        rel = rel + "Data de contratação: " + hiringDate + "\n";
         return rel;
     }
 }
