@@ -197,7 +197,7 @@ public class Company {
                 }
                 break;
             case 3:
-                System.out.print("Digite o nome do cliente: ");
+                System.out.print("Digite o nome do funcionário: ");
                 String name = input.nextLine();
                 String address, phone1, phone2;
                 for(Employee p : employees)
