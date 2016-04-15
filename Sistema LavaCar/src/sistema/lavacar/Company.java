@@ -49,7 +49,6 @@ public class Company {
     public boolean menuCliente(ArrayList<Customer> people)
     {
         Scanner input = new Scanner(System.in);
-        input.nextLine(); //Tira os possíveis \n
         System.out.println("\tCLIENTES");
         System.out.println("(1) Novo cliente");
         System.out.println("(2) Listar todos os clientes");
@@ -79,12 +78,15 @@ public class Company {
                 for(Customer p : people)
                     if(name.equals(p.getName()))
                     {
-                        System.out.println("Digite o endereço: ");
+                        System.out.print("Digite o endereço: ");
                         address = input.nextLine();
-                        System.out.println("Digite o telefone1: ");
+                        System.out.print("Digite o telefone1: ");
                         phone1 = input.nextLine();
-                        System.out.println("Digite o telefone2: ");
+                        System.out.print("Digite o telefone2: ");
                         phone2 = input.nextLine();
+                        p.setAddress(address);
+                        p.setPhone1(phone1);
+                        p.setPhone2(phone2);
                     }
                 break;
             case 0:
@@ -204,12 +206,15 @@ public class Company {
                 for(Employee p : employees)
                     if(name.equals(p.getName()))
                     {
-                        System.out.println("Digite o endereço: ");
+                        System.out.print("Digite o endereço: ");
                         address = input.nextLine();
-                        System.out.println("Digite o telefone1: ");
+                        System.out.print("Digite o telefone1: ");
                         phone1 = input.nextLine();
-                        System.out.println("Digite o telefone2: ");
+                        System.out.print("Digite o telefone2: ");
                         phone2 = input.nextLine();
+                        p.setAddress(address);
+                        p.setPhone1(phone1);
+                        p.setPhone2(phone2);
                     }
                 break;                
             case 0:
