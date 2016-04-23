@@ -6,9 +6,9 @@
 package sistema.lavacar;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  *
@@ -18,11 +18,10 @@ public class Customer extends Person implements Serializable {
     private final String dateOfInsert;
     public ArrayList<Vehicle> vehiclesOfCustomer;
 
-    public SimpleDateFormat dateToday;
-
     public Customer(){
-        dateToday = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-        dateOfInsert = dateToday.format(new Date());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Calendar c = Calendar.getInstance();
+        dateOfInsert = sdf.format(c.getTime());
         
         vehiclesOfCustomer = new ArrayList<>();
         Vehicle vehicle = new Vehicle();
