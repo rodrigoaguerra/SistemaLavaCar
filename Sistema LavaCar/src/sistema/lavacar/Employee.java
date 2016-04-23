@@ -7,7 +7,7 @@ package sistema.lavacar;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 
 /**
  *
@@ -17,8 +17,9 @@ public class Employee  extends Person implements Serializable{
     private final String hiringDate;
     
     public Employee(){
-        SimpleDateFormat dateToday = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-        hiringDate = dateToday.format(new Date());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy hh:mm:ss");
+        Calendar c = Calendar.getInstance();
+        hiringDate = sdf.format(c.getTime());
     }
     public String gerarRelatorio()
     {
