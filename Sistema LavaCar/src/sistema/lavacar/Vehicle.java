@@ -2,9 +2,9 @@
 package sistema.lavacar;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Vehicle implements Serializable {
     private final String brand;
@@ -16,8 +16,6 @@ public class Vehicle implements Serializable {
     private String description;
     private final int size;
     
-    SimpleDateFormat dateToday;
-
     public Vehicle(){
         Scanner input = new Scanner (System.in);  
         
@@ -44,8 +42,9 @@ public class Vehicle implements Serializable {
         size = input.nextInt();
         input.nextLine(); //Tira o \n
 
-        dateToday = new SimpleDateFormat("dd/MM/yyyy hh:mm"); 
-        dateOfInsert = dateToday.format(new Date());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Calendar c = Calendar.getInstance();
+        dateOfInsert = sdf.format(c.getTime());
     }
     public String gerarRelatorio()
     {
