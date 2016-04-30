@@ -18,7 +18,11 @@ public class Customer extends Person implements Serializable {
     private final String dateOfInsert;
     public ArrayList<Vehicle> vehiclesOfCustomer;
 
-    public Customer(){
+    public Customer(String n, String rg, String cpf, String d,
+                    String a, String p1, String p2)
+    {
+        super(n, rg, cpf, d, a, p1, p2);
+        
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Calendar c = Calendar.getInstance();
         dateOfInsert = sdf.format(c.getTime());
