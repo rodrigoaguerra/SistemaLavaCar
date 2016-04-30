@@ -15,11 +15,16 @@ import java.util.Calendar;
  */
 public class Employee  extends Person implements Serializable{
     private final String hiringDate;
+    private double payment;
     
-    public Employee(){
+    public Employee(String n, String rg, String cpf, String d,
+                    String a, String p1, String p2, double p){
+        super(n, rg, cpf, d, a, p1, p2);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy hh:mm:ss");
         Calendar c = Calendar.getInstance();
         hiringDate = sdf.format(c.getTime());
+        
+        payment = p;
     }
     public String gerarRelatorio()
     {
@@ -29,5 +34,9 @@ public class Employee  extends Person implements Serializable{
         rel = rel + "Endereço: " + address + "\tData de nascimento: " + dateOfBirth + "\n";
         rel = rel + "Data de contratação: " + hiringDate + "\n";
         return rel;
+    }
+    public double getPayment()
+    {
+        return payment;
     }
 }
