@@ -21,7 +21,7 @@ public class WorkingFile {
     public static ArrayList read(ArrayList obj, String nameFile) throws FileNotFoundException
     {     
         try {
-            FileInputStream readFile = new FileInputStream("data/" + nameFile +".bin");       
+            FileInputStream readFile = new FileInputStream("data/" + nameFile +".txt");       
             ObjectInputStream stream = new ObjectInputStream(readFile); 
             // rescue the objects
             obj = (ArrayList) stream.readObject();
@@ -35,7 +35,7 @@ public class WorkingFile {
     public static void write(ArrayList obj, String nameFile) throws FileNotFoundException
     {
         try {
-            FileOutputStream saveFile = new FileOutputStream("data/" + nameFile +".bin");
+            FileOutputStream saveFile = new FileOutputStream("data/" + nameFile +".txt");
             ObjectOutputStream stream = new ObjectOutputStream(saveFile);
             stream.writeObject(obj);
             stream.close();
