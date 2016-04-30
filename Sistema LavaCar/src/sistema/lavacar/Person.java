@@ -24,34 +24,15 @@ public class Person implements Serializable {
     customer e employee. O Protected deixa visível para as sub-classes.
     É um public mais restrito pelo que eu entendi. */
       
-    public Person(){
-        Scanner input = new Scanner (System.in);
-        
-        System.out.print("Nome .: ");
-        name = input.nextLine();
-
-        System.out.print("RG .: ");
-        rg = input.nextLine();
-        
-        System.out.print("CPF .: ");
-        cpf = input.nextLine();
-        
-        System.out.print("Data de nascimento (DD MM AA).: ");   
-        int dia = input.nextInt();
-        int mes = input.nextInt();
-        int ano = input.nextInt();
-        input.nextLine(); //Tira o \n
-        /* É melhor como int para poder verificar se é válida */
-        dateOfBirth = dia + "/" + mes + "/" + ano;
-
-        System.out.print("Endereço .: ");
-        address = input.nextLine();
-
-        System.out.print("Telefone1 .: ");
-        phone1 = input.nextLine();
-
-        System.out.print("Telefone2 .: ");
-        phone2 = input.nextLine();
+    public Person(String n, String rg, String cpf, String d,
+                    String a, String p1, String p2){
+        name = n;
+        this.rg = rg;
+        this.cpf = cpf;
+        dateOfBirth = d;
+        address = a;
+        phone1 = p1;
+        phone2 = p2;
     }
     public String getName()
     {
