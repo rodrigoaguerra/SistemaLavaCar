@@ -49,10 +49,10 @@ public class Vehicle implements Serializable {
     public String gerarRelatorio()
     {
         String rel = "";
-        rel = rel + "Marca: " + getBrand() + "\tModelo: " + getModel() + "\n";
-        rel = rel + "Placa: " + getBoard() + "\tAno: " + getYear() + "\tCor: " + getColor() + "\n";
-        rel = rel + "Data de cadastro: " + getDateOfInsert() + "\n";
-        rel = rel + "Descrição: " + getDescription() + "\n\n";
+        rel = rel + "Marca: " + brand + "\tModelo: " + model + "\n";
+        rel = rel + "Placa: " + board + "\tAno: " + year + "\tCor: " + color + "\n";
+        rel = rel + "Data de cadastro: " + dateOfInsert + "\n";
+        rel = rel + "Descrição: " + description + "\n\n";
         return rel;
     }
     public void setColor(String color)
@@ -63,32 +63,7 @@ public class Vehicle implements Serializable {
     {
         this.description = description;
     }
-    public String getBrand()
-    {
-        return brand;
-    }
-    public String getModel()
-    {
-        return model;
-    }
-    public String getBoard()
-    {
-        return board;
-    }
-    public String getYear()
-    {
-        return year;
-    }
-    public String getColor()
-    {
-        return color;
-    }
-    public String getDateOfInsert()
-    {
-        return dateOfInsert;
-    }
-    public String getDescription()
-    {
-        return description;
-    }
+    public String getBoard() {  return board;   }
+    public int getSize() {   return size;   }
 }
+
