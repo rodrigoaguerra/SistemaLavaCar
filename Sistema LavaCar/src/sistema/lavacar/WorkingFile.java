@@ -6,10 +6,10 @@
 package sistema.lavacar;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
@@ -17,8 +17,19 @@ import java.util.ArrayList;
  * @author rodrigo
  */
 public class WorkingFile {
+    public static void saveData(ArrayList obj, String nameFile) throws FileNotFoundException
+    {
+        try {
+            FileOutputStream saveFile = new FileOutputStream("data/" + nameFile +".txt");
+            ObjectOutputStream stream = new ObjectOutputStream(saveFile);
+            stream.writeObject(obj);
+            stream.close();
+        } catch (Exception exc) {
+            System.out.println("Não foi possivel gravar o arquivo " + nameFile);
+        }      
+    }
     
-    public static ArrayList read(ArrayList obj, String nameFile) throws FileNotFoundException
+    public static ArrayList recoverData(ArrayList obj, String nameFile) throws FileNotFoundException
     {     
         try {
             FileInputStream readFile = new FileInputStream("data/" + nameFile +".txt");       
@@ -31,16 +42,14 @@ public class WorkingFile {
         }
         return obj;
     }
-        
-    public static void write(ArrayList obj, String nameFile) throws FileNotFoundException
-    {
-        try {
-            FileOutputStream saveFile = new FileOutputStream("data/" + nameFile +".txt");
-            ObjectOutputStream stream = new ObjectOutputStream(saveFile);
-            stream.writeObject(obj);
-            stream.close();
-        } catch (Exception exc) {
-            System.out.println("Não foi possivel gravar o arquivo " + nameFile);
-        }      
-    }
+    
+    //public static void saveData()
+    //Salva os relatórios e insumos em .txt
+    
+    //public static void recoverData()
+    //Lê os relatórios e insumos do .txt
+    
+    //Podem ter o mesmo nome das que salvam ArrayList,
+    //se o cabeçalho for diferente o Java entende qual
+    //nós queremos chamar.
 }
