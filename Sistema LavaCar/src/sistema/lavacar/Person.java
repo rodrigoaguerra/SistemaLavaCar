@@ -21,11 +21,10 @@ public class Person implements Serializable {
     protected String phone2;
     protected final String dateOfBirth;
     /* Se os atributos forem private, não dá para acessar nos objetos
-    customer e employee. O Protected deixa visível para as sub-classes.
-    É um public mais restrito pelo que eu entendi. */
+    customer e employee. O Protected deixa visível para as sub-classes. */
       
     public Person(String n, String rg, String cpf, String d,
-                    String a, String p1, String p2){
+                  String a, String p1, String p2){
         name = n;
         this.rg = rg;
         this.cpf = cpf;
@@ -33,10 +32,6 @@ public class Person implements Serializable {
         address = a;
         phone1 = p1;
         phone2 = p2;
-    }
-    public String getName()
-    {
-        return name;
     }
     public void setAddress(String address)
     {
@@ -50,4 +45,5 @@ public class Person implements Serializable {
     {
         this.phone2 = phone2;
     }
+    public String getName() { return name; }
 }
