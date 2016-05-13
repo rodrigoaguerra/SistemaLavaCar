@@ -5,46 +5,53 @@ import java.io.Serializable;
 import java.util.Scanner;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Random;
 
 public class Vehicle implements Serializable {
-    private final String brand;
-    private final String model;
-    private final String board;
-    private final String year;
+    private String brand;
+    private String model;
+    private String board;
+    private String year;
     private String color;
-    private final String dateOfInsert;
     private String description;
-    private final int size;
+    private int size;
+    private String dateOfInsert;
     
-    public Vehicle(){
-        Scanner input = new Scanner (System.in);  
+    private boolean motor;
+    private boolean pneus;
+    private boolean oleo;
+    private boolean combustivel;
+    private boolean tanque;
+    private boolean bateria;
+    private boolean polimento;
+    private boolean pintura;
+    
+    public Vehicle(String br, String m, String bo, String y,
+                   String co, String d, int s)
+    {
+        brand = br; 
+        model = m; 
+        board = bo; 
+        year = y; 
+        color = co;
+        description = d;   
+        size = s;
+        randomizeState();
         
-        System.out.println("\tInformaçoes do veiculo");  
-        System.out.print("Marca .: "); 
-        brand = input.nextLine(); 
-          
-        System.out.print("Modelo .: "); 
-        model = input.nextLine(); 
-        
-        System.out.print("Placa .: "); 
-        board = input.nextLine(); 
-        
-        System.out.print("Ano .: "); 
-        year = input.nextLine(); 
-         
-        System.out.print("Cor .: "); 
-        color = input.nextLine(); 
-  
-        System.out.print("Decrição .: ");   
-        description = input.nextLine();   
-         
-        System.out.print("Tamanho (1 - Pequeno, 2 - Médio, 3 - Grande) .: ");   
-        size = input.nextInt();
-        input.nextLine(); //Tira o \n
-
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Calendar c = Calendar.getInstance();
         dateOfInsert = sdf.format(c.getTime());
+    }
+    public void randomizeState() {
+        Random r = new Random();
+        motor = r.nextBoolean();
+        pneus = r.nextBoolean();
+        oleo = r.nextBoolean();
+        combustivel = r.nextBoolean();
+        tanque = r.nextBoolean();
+        bateria = r.nextBoolean();
+        polimento = r.nextBoolean();
+        pintura = r.nextBoolean();
     }
     public String gerarRelatorio()
     {
@@ -52,7 +59,7 @@ public class Vehicle implements Serializable {
         rel = rel + "Marca: " + brand + "\tModelo: " + model + "\n";
         rel = rel + "Placa: " + board + "\tAno: " + year + "\tCor: " + color + "\n";
         rel = rel + "Data de cadastro: " + dateOfInsert + "\n";
-        rel = rel + "Descrição: " + description + "\n\n";
+        rel = rel + "Descrição: " + description;
         return rel;
     }
     public void setColor(String color)
@@ -63,7 +70,16 @@ public class Vehicle implements Serializable {
     {
         this.description = description;
     }
-    public String getBoard() {  return board;   }
-    public int getSize() {   return size;   }
+    public String getBoard() { return board; }
+    public int getSize() { return size; }
+
+    public boolean getMotor() { return motor; }
+    public boolean getPneus() { return pneus; }
+    public boolean getOleo() { return oleo; }
+    public boolean getCombustivel() { return combustivel; }
+    public boolean getTanque() { return tanque; }
+    public boolean getBateria() { return bateria; }
+    public boolean getPolimento() { return polimento; }
+    public boolean getPintura() { return pintura; }
 }
 
