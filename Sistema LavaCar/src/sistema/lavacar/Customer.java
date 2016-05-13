@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Scanner;
 
 /**
  *
@@ -28,8 +29,7 @@ public class Customer extends Person implements Serializable {
         dateOfInsert = sdf.format(c.getTime());
         
         vehiclesOfCustomer = new ArrayList<>();
-        Vehicle vehicle = new Vehicle();
-        vehiclesOfCustomer.add(vehicle);
+        adicionaVeiculo();
     }
     public String gerarRelatorio()
     {
@@ -42,7 +42,26 @@ public class Customer extends Person implements Serializable {
     }
     public void adicionaVeiculo()
     {
-        Vehicle vehicle = new Vehicle();
+        Scanner input = new Scanner (System.in);  
+        String br, m, bo, y, c, d;
+        int size;
+        System.out.println("\tInformaçoes do veiculo");  
+        System.out.print("Marca .: "); 
+        br = input.nextLine(); 
+        System.out.print("Modelo .: "); 
+        m = input.nextLine(); 
+        System.out.print("Placa .: "); 
+        bo = input.nextLine(); 
+        System.out.print("Ano .: "); 
+        y = input.nextLine(); 
+        System.out.print("Cor .: "); 
+        c = input.nextLine(); 
+        System.out.print("Decrição .: ");   
+        d = input.nextLine();   
+        System.out.print("Tamanho (1 - Pequeno, 2 - Médio, 3 - Grande) .: ");   
+        size = input.nextInt();
+        
+        Vehicle vehicle = new Vehicle(br, m, bo, y, c, d, size);
         vehiclesOfCustomer.add(vehicle);
     }
 }
