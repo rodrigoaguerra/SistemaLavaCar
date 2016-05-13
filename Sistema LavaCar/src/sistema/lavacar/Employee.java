@@ -35,8 +35,5 @@ public class Employee  extends Person implements Serializable{
         rel = rel + "Data de contratação: " + hiringDate + "\n";
         return rel;
     }
-    public double getPayment()
-    {
-        return payment;
-    }
+    public double getPayment() { return payment; }
 }
