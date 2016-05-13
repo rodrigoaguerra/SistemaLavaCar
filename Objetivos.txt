@@ -14,20 +14,24 @@ Conforme formos implementando, vamos ir anotando o que está pronto
     (OK) Listar todos
     (OK) Editar informações
  ~~ Efetuação de serviços - 5 PONTOS
-    (  )  Lavar o próximo carro
-    (  )  Estimativa de tempo de espera - 10 PONTOS
-    (  )  Diagnostico do veículo e serviços futuros - 10 PONTOS
+    (OK)  Lavar o próximo carro
+    (OK)  Estimativa de tempo de espera - 10 PONTOS
+    (OK)  Diagnostico do veículo e serviços futuros - 10 PONTOS
  ~~ Gerenciamento de insumos - 10 PONTOS
     (OK)  Checar
     (OK)  Adicionar
-    (OK)  Descontar (é chamado quando executa um serviço)
+    (OK)  Descontar
  ~~ Geração de relatórios - 10 PONTOS
-    (  )  Diário
-    (  )  Mensal
-    (  )  Anual
+    (OK)  Diário
+    (OK)  Mensal
+    (OK)  Anual
  ~~ Salvamento dos dados em arquivos (cadastros, estoque de insumos) - 10 PONTOS
-    (OK)  Salvar cadastros
-    (  )  Salvar estoque de insumos
+    (OK)  Salvar info dos cadastros e recuperar esses dados no início do programa
+    (  )  Salvar os cadastros em outro arquivo como strings, ou seja, formatados
+          como bem entendermos, para poder visualizar mais facilmente
+    (  )  Salvar estoque de insumos, numServ e finanças, de maneira
+          que seja possível recuperar esses dados no início do programa
+    (  )  Salvar relatórios
  ~~ Qualidade do relatório final (adequação ao documento de regras) - 15 PONTOS
     (  )  Later
     (  )  Diagrama de classes UML
