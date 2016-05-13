@@ -151,6 +151,7 @@ public class Services {
             rel = rel + "Polimento \n";
         if(v.getPintura() == false)
             rel = rel + "Pintura \n";
+        v.randomizeState(); //Muda os atributos para não ficar sempre igual
         return rel;
     }
     public static void setValues(double s, double m, double b)
