@@ -5,11 +5,13 @@
  */
 package sistema.lavacar;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Eragon Geb
  */
-public class Insumos {
+public class Insumos implements Serializable{
     private int sabao;
     private int esponjas;
     private int panos;
@@ -26,6 +28,7 @@ public class Insumos {
         precoEsponja = 7.00;
         precoPano = 3.00;
     }
+    
     public void adicionar(int s, int e, int p)
     {
         sabao += s;

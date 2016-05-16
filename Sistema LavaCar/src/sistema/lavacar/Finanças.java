@@ -1,10 +1,11 @@
 
 package sistema.lavacar;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Finanças {
+public class Finanças implements Serializable{
     private double[] lucroDia;
     private double[] lucroMes;
     private double saldoAtual;

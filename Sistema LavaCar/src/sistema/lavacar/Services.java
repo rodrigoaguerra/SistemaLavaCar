@@ -16,7 +16,7 @@ public class Services {
     private static int[] servDia;
     private static int[] servMes;
     private static ArrayList<Vehicle> fila;
-
+    
     public static void create(double vs, double vm, double vb, Insumos i)
     {
         valueSmall = vs;
@@ -27,6 +27,7 @@ public class Services {
         servMes = new int[12];
         fila = new ArrayList<>();
     }
+     
     public static double executar()
     {
         if(fila.isEmpty()) //if(fila.size()==0)
@@ -76,6 +77,23 @@ public class Services {
         fila.remove(0);
         return valor;
     }
+    
+    /*public static double polimento(){
+        double valor = 0;
+        
+        return valor;
+    }
+    
+    public static double espelhamento(){
+        double valor = 0;
+        
+        return valor;
+    }
+    public static double higienizacao(){
+        double valor = 0;
+        
+        return valor;
+    }*/
     public static Vehicle procurarVeiculoNoSistema(String board, ArrayList<Customer> customers)
     {
         for(Customer p : customers)
@@ -84,6 +102,7 @@ public class Services {
                     return v;
         return null;
     }
+    
     public static ArrayList<Vehicle> getFila()
     {
         return fila;

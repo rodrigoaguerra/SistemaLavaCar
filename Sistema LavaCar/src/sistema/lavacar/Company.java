@@ -37,8 +37,6 @@ public class Company {
         site_company = site;
         this.cnpj = cnpj;
         
-        insumos = new Insumos(100, 100, 100);
-        finanças = new Finanças();
         Services.create(40.00, 50.00, 60.00, insumos);
         
         customers = new ArrayList<>();
@@ -53,8 +51,8 @@ public class Company {
         // Lê as informações dos clientes e funcionários
         customers = (ArrayList<Customer>) WorkingFile.recoverData(customers, "customersData");
         employees = (ArrayList<Employee>) WorkingFile.recoverData(employees, "employeesData");
-        
-        
+        insumos = WorkingFile.recoverData(insumos, "insumosData");
+        finanças = WorkingFile.recoverData(finanças, "financasData");
         //Lê os relatórios em arquivo e passa pros
         //atributos de serviço, finanças e insumos
         
@@ -93,7 +91,8 @@ public class Company {
         //Salva os clientes e seus veículos em um arquivo e os empregados em outro
         WorkingFile.saveData(customers, "customersData");
         WorkingFile.saveData(employees, "employeesData");
-        
+        WorkingFile.saveData(insumos, "insumosData");
+        WorkingFile.saveData(finanças, "financasData");
         
         //Salva também como um texto formatado, para facilitar a visualização
         //WorkingFile.write()

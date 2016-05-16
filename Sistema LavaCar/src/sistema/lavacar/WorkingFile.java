@@ -43,6 +43,64 @@ public class WorkingFile {
         return obj;
     }
     
+    //Salva os relatórios e insumos em .txt
+    public static void saveData(Insumos obj, String nameFile) throws FileNotFoundException
+    {
+        try {
+            FileOutputStream saveFile = new FileOutputStream("data/" + nameFile +".txt");
+            ObjectOutputStream stream = new ObjectOutputStream(saveFile);
+            stream.writeObject(obj);
+            stream.close();
+        } catch (Exception exc) {
+            System.out.println("Não foi possivel gravar o arquivo " + nameFile + ".txt");
+        }
+    }
+     
+    //Lê os relatórios e insumos do .txt
+    public static Insumos recoverData(Insumos obj, String nameFile) throws FileNotFoundException
+    {     
+        try {
+            FileInputStream readFile = new FileInputStream("data/" + nameFile +".txt");       
+            ObjectInputStream stream = new ObjectInputStream(readFile); 
+            // rescue the objects
+            obj = (Insumos) stream.readObject();
+            stream.close();
+        } catch (Exception e) {
+            System.out.println("Não foi possivel carregar o arquivo " + nameFile + ".txt");
+            obj = new Insumos(100, 100, 100);
+        }
+        return obj;
+    }    
+    
+     //Salva os relatórios e insumos em .txt
+    public static void saveData(Finanças obj, String nameFile) throws FileNotFoundException
+    {
+        try {
+            FileOutputStream saveFile = new FileOutputStream("data/" + nameFile +".txt");
+            ObjectOutputStream stream = new ObjectOutputStream(saveFile);
+            stream.writeObject(obj);
+            stream.close();
+        } catch (Exception exc) {
+            System.out.println("Não foi possivel gravar o arquivo " + nameFile + ".txt");
+        }
+    }
+     
+    //Lê os relatórios e insumos do .txt
+    public static Finanças recoverData(Finanças obj, String nameFile) throws FileNotFoundException
+    {     
+        try {
+            FileInputStream readFile = new FileInputStream("data/" + nameFile +".txt");       
+            ObjectInputStream stream = new ObjectInputStream(readFile); 
+            // rescue the objects
+            obj = (Finanças) stream.readObject();
+            stream.close();
+        } catch (Exception e) {
+            System.out.println("Não foi possivel carregar o arquivo " + nameFile + ".txt");
+            obj = new Finanças();
+        }
+        return obj;
+    }    
+
     //public static void saveData()
     //Salva os relatórios e insumos em .txt
     
