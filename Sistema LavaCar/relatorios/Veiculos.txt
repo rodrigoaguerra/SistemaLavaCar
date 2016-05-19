@@ -1,0 +1,10 @@
+Marca: Fiat	Modelo: Palio
+Placa: IGG-1854	Ano: 1997	Cor: Roxo
+Data de cadastro: 18/05/2016 02:50:53
+Descrição: Riscos Na Lateral
+___________________________________________________________________
+Marca: YAMAHA	Modelo: YBR 125
+Placa: AQJ-1853	Ano: 2007	Cor: Vermelha
+Data de cadastro: 18/05/2016 03:00:29
+Descrição: Riscos no tangue
+___________________________________________________________________

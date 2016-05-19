@@ -5,19 +5,20 @@
  */
 package sistema.lavacar;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Services {
-    private static double valueSmall; //Preço do serviço
-    private static double valueMedium;
-    private static double valueBig;
-    private static Insumos insumos;
-    private static int[] servDia;
-    private static int[] servMes;
-    private static ArrayList<Vehicle> fila;
+public class Services  implements Serializable{
+    private double valueSmall; //Preço do serviço
+    private double valueMedium;
+    private double valueBig;
+    private Insumos insumos;
+    private int[] servDia;
+    private int[] servMes;
+    private ArrayList<Vehicle> fila;
     
-    public static void create(double vs, double vm, double vb, Insumos i)
+    public void lavagemCompleta (double vs, double vm, double vb, Insumos i)
     {
         valueSmall = vs;
         valueMedium = vm;
@@ -28,7 +29,7 @@ public class Services {
         fila = new ArrayList<>();
     }
      
-    public static double executar()
+    public double executar()
     {
         if(fila.isEmpty()) //if(fila.size()==0)
         {
@@ -94,7 +95,7 @@ public class Services {
         
         return valor;
     }*/
-    public static Vehicle procurarVeiculoNoSistema(String board, ArrayList<Customer> customers)
+    public Vehicle procurarVeiculoNoSistema(String board, ArrayList<Customer> customers)
     {
         for(Customer p : customers)
             for(Vehicle v : p.vehiclesOfCustomer)
@@ -103,11 +104,11 @@ public class Services {
         return null;
     }
     
-    public static ArrayList<Vehicle> getFila()
+    public ArrayList<Vehicle> getFila()
     {
         return fila;
     }
-    public static void mostrarFila()
+    public void mostrarFila()
     {
         if(fila.isEmpty())
             return;
@@ -115,7 +116,7 @@ public class Services {
         for(int i=0; i < fila.size(); i++)
             System.out.println(fila.get(i).getBoard());
     }
-    public static String estimarTempoDeEspera()
+    public String estimarTempoDeEspera()
     {
         int min=0,
             size;
@@ -131,7 +132,7 @@ public class Services {
         String tempo = min/60 + "h" + min%60 + "min";
         return tempo;
     }
-    public static String fazDiagnostico (Vehicle v)
+    public String fazDiagnostico (Vehicle v)
     {
         String rel = "DIAGNOSTICO do veículo " + v.getBoard() + "\n";
         if(v.getMotor() == true)
@@ -173,12 +174,30 @@ public class Services {
         v.randomizeState(); //Muda os atributos para não ficar sempre igual
         return rel;
     }
-    public static void setValues(double s, double m, double b)
+    public void setValues(double s, double m, double b)
     {
         valueSmall = s;
         valueMedium = m;
         valueBig = b;
     }
-    public static int getServDia(int d) { return servDia[d]; }
-    public static int getServMes(int m) { return servMes[m]; }
+    
+    public double getValueSmall()
+    { 
+        return valueSmall;
+    }        
+    
+    public double getValueMedium(){
+        return valueMedium;
+    }
+    
+    public double getValueBig(){
+        return valueBig;
+    }
+    
+    public Insumos getInsumos(){
+        return insumos;  
+    }
+    
+    public  int getServDia(int d) { return servDia[d]; }
+    public  int getServMes(int m) { return servMes[m]; }
 }

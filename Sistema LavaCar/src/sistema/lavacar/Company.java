@@ -22,6 +22,7 @@ public class Company {
     private String cnpj;
     private Insumos insumos;
     private Finanças finanças;
+    private Services services;
     private ArrayList<Customer> customers;
     private ArrayList<Employee> employees;
     private String[] relMensal;
@@ -36,9 +37,6 @@ public class Company {
         phone_company = phone;
         site_company = site;
         this.cnpj = cnpj;
-        
-        Services.create(40.00, 50.00, 60.00, insumos);
-        
         customers = new ArrayList<>();
         employees = new ArrayList<>();
         relMensal = new String[12];
@@ -53,6 +51,11 @@ public class Company {
         employees = (ArrayList<Employee>) WorkingFile.recoverData(employees, "employeesData");
         insumos = WorkingFile.recoverData(insumos, "insumosData");
         finanças = WorkingFile.recoverData(finanças, "financasData");
+        services = WorkingFile.recoverData(services, insumos, "servicesData");
+        
+        System.out.println(services.getValueSmall());
+        System.out.println(services.getValueMedium());
+        System.out.println(services.getValueBig());
         //Lê os relatórios em arquivo e passa pros
         //atributos de serviço, finanças e insumos
         
@@ -93,7 +96,10 @@ public class Company {
         WorkingFile.saveData(employees, "employeesData");
         WorkingFile.saveData(insumos, "insumosData");
         WorkingFile.saveData(finanças, "financasData");
+        WorkingFile.saveData(services, "servicesData");
         
+        Relatorios.gerarRelatorioClientes(customers, "Clientes");
+        Relatorios.gerarRelatorioVehicles(customers, "Veiculos");
         //Salva também como um texto formatado, para facilitar a visualização
         //WorkingFile.write()
         //WorkingFile.write()
@@ -109,7 +115,7 @@ public class Company {
     public boolean menuFuncionario()
     {
         Scanner input = new Scanner(System.in);
-        Services.mostrarFila();
+        services.mostrarFila();
         System.out.println("\n\tFUNCIONARIO");
         System.out.println("(1) Cadastrar cliente");
         System.out.println("(2) Cadastrar veículo");
@@ -135,7 +141,7 @@ public class Company {
                 cadastrarVeiculo();
                 break;
             case 3:
-                double valor = Services.executar();
+                double valor = services.executar();
                 if(valor != 0)
                     finanças.caixaIn(valor);
                 else
@@ -144,10 +150,10 @@ public class Company {
             case 4:
                 System.out.print("Digite a placa do veículo: ");
                 board = input.nextLine();
-                car = Services.procurarVeiculoNoSistema(board, customers);
+                car = services.procurarVeiculoNoSistema(board, customers);
                 if(car != null) //Tudo OK
                 {
-                    fila = Services.getFila();
+                    fila = services.getFila();
                     fila.add(car);
                     System.out.println("Veiculo adicionado à lista com sucesso!");
                 }
@@ -158,14 +164,14 @@ public class Company {
                 }
                 break;
             case 5:
-                String tempo = Services.estimarTempoDeEspera();
+                String tempo = services.estimarTempoDeEspera();
                 System.out.println(tempo);
                 break;
             case 6:
                 System.out.print("Digite a placa do veículo: ");
                 board = input.nextLine();
-                car = Services.procurarVeiculoNoSistema(board, customers);
-                String rel = Services.fazDiagnostico(car);
+                car = services.procurarVeiculoNoSistema(board, customers);
+                String rel = services.fazDiagnostico(car);
                 System.out.println(rel);
                 break;
             case 7:
@@ -207,7 +213,7 @@ public class Company {
                 double valMed = input.nextDouble();
                 System.out.print("Veículos grandes: ");
                 double valBig = input.nextDouble();
-                Services.setValues(valSmall, valMed, valBig);
+                services.setValues(valSmall, valMed, valBig);
                 break;
             case 2:
                 String rel = insumos.gerarRelatorio();
@@ -465,7 +471,7 @@ public class Company {
                 //Não vale a pena guardar relatórios diários
                 //em arquivos, basta mostrar na tela se o gerente pedir
                 System.out.println("RELATÓRIO DO DIA " + (dia+1));
-                System.out.println("Serviços realizados: " + Services.getServDia(dia));
+                System.out.println("Serviços realizados: " + services.getServDia(dia));
                 System.out.println("Lucros: " + finanças.getLucroDia(dia));
                 break;
             case 2:
@@ -478,7 +484,7 @@ public class Company {
                 rel = rel + "DIA\tSERVIÇOS\tLUCRO \n";
                 for(int i=0; i < 31; i++)
                 {
-                    rel = rel + (i+1) + "\t" + Services.getServDia(i) + "\t" +
+                    rel = rel + (i+1) + "\t" + services.getServDia(i) + "\t" +
                             finanças.getLucroDia(i) + "\n";
                     valor += finanças.getLucroDia(i);
                 }   rel = rel + "+" + valor + "\tTotal \n";
@@ -502,7 +508,7 @@ public class Company {
                 rel = "DADOS DE " + c.get(Calendar.YEAR) + "\n";
                 rel = rel + "MES\tSERVIÇOS\tLUCRO \n";
                 for(int i=0; i < 12; i++)
-                    rel = rel + i + "\t" + Services.getServMes(i) + "\t" +
+                    rel = rel + i + "\t" + services.getServMes(i) + "\t" +
                             finanças.getLucroMes(i) + "\n";
                 rel = rel + finanças.getSaldoAtual() + " Saldo atual \n";
                 System.out.println(rel);

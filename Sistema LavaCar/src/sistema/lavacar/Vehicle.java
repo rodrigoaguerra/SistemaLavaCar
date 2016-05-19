@@ -59,7 +59,7 @@ public class Vehicle implements Serializable {
         rel = rel + "Marca: " + brand + "\tModelo: " + model + "\n";
         rel = rel + "Placa: " + board + "\tAno: " + year + "\tCor: " + color + "\n";
         rel = rel + "Data de cadastro: " + dateOfInsert + "\n";
-        rel = rel + "Descrição: " + description;
+        rel = rel + "Descrição: " + description + "\n";
         return rel;
     }
     public void setColor(String color)
