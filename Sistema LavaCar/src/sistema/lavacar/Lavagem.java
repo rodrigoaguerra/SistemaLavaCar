@@ -4,10 +4,6 @@ package sistema.lavacar;
 import java.io.Serializable;
 import java.util.Calendar;
 
-/**
- *
- * @author Eragon Geb
- */
 public class Lavagem extends Service implements Serializable{
     private int tempoSmall;
     private int tempoMedium;
