@@ -25,6 +25,9 @@ public class Company {
         phone_company = phone;
         site_company = site;
         this.cnpj = cnpj;
+        insumos = new Insumos(100, 100, 100);
+        finanças = new Finanças();
+        lavagem = new Lavagem(40.00, 50.00, 60.00);
         customers = new ArrayList<>();
         employees = new ArrayList<>();
     }
