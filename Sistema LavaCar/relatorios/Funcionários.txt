@@ -1,0 +1,6 @@
+Nome: Bob	RG: 789789789	CPF: 789789789
+Telefone 1: 3788 7888	Telefone 2: 9787 8787
+Endereço: Rua do Bob, 150	Data de nascimento: 7/8/78
+Data de contratação: 19/05/2016 05:05:54
+___________________________________________
+

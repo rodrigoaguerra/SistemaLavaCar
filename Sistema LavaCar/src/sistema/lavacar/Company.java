@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sistema.lavacar;
 
 import java.io.FileNotFoundException;
@@ -10,10 +5,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
 
-/**
- *
- * @author a1762281
- */
 public class Company {
     private String name_company;
     private String address_company;
@@ -22,12 +13,9 @@ public class Company {
     private String cnpj;
     private Insumos insumos;
     private Finanças finanças;
-    private Services services;
+    private Lavagem lavagem;
     private ArrayList<Customer> customers;
     private ArrayList<Employee> employees;
-    private String[] relMensal;
-    private String relAnual;
-    private String relInsumos;
             
     public Company(String name, String adress, String phone,
             String site, String cnpj)
@@ -39,26 +27,20 @@ public class Company {
         this.cnpj = cnpj;
         customers = new ArrayList<>();
         employees = new ArrayList<>();
-        relMensal = new String[12];
-        relAnual = null;
     }
     public void executar() throws FileNotFoundException
     {
         Scanner input = new Scanner(System.in);        
         
-        // Lê as informações dos clientes e funcionários
-        customers = (ArrayList<Customer>) WorkingFile.recoverData(customers, "customersData");
-        employees = (ArrayList<Employee>) WorkingFile.recoverData(employees, "employeesData");
-        insumos = WorkingFile.recoverData(insumos, "insumosData");
-        finanças = WorkingFile.recoverData(finanças, "financasData");
-        services = WorkingFile.recoverData(services, insumos, "servicesData");
-        
-        System.out.println(services.getValueSmall());
-        System.out.println(services.getValueMedium());
-        System.out.println(services.getValueBig());
-        //Lê os relatórios em arquivo e passa pros
-        //atributos de serviço, finanças e insumos
-        
+        /* Recupera as informações dos clientes,
+        funcionários, insumos, finanças e serviços
+        dos arquivos. */
+        customers = (ArrayList<Customer>) Arquivos.recoverData(customers, "customersData");
+        employees = (ArrayList<Employee>) Arquivos.recoverData(employees, "employeesData");
+        insumos = Arquivos.recoverData(insumos, "insumosData");
+        finanças = Arquivos.recoverData(finanças, "financasData");
+        lavagem = Arquivos.recoverData(lavagem, "lavagemData");
+        lavagem.setInsumos(insumos);
         
         int answer = 0; //Reposta do menu principal
         boolean querVoltar=false;
@@ -71,7 +53,17 @@ public class Company {
                     querVoltar = menuGerente();
                     break;
                 case 3:
-                    imprimeInfoEmpresa();
+                    System.out.println("Veiculo pequeno: R$ " + lavagem.getPriceSmall());
+                    System.out.println("Veiculo médio: R$ " + lavagem.getPriceMedium());
+                    System.out.println("Veiculo grande: R$ " + lavagem.getPriceBig());
+                    answer = 10;
+                    break;
+                case 4:
+                    System.out.println("Nome: " + name_company);
+                    System.out.println("Endereço: " + address_company);
+                    System.out.println("Telefone: " + phone_company);
+                    System.out.println("Site: " + site_company);
+                    System.out.println("CNPJ: " + cnpj); 
                     answer = 10;
                     break;
                 default:
@@ -79,7 +71,8 @@ public class Company {
                     System.out.println("\tMENU PRINCIPAL");
                     System.out.println("(1) Funcionário");
                     System.out.println("(2) Gerente");
-                    System.out.println("(3) Ver informações da empresa");
+                    System.out.println("(3) Ver preços");
+                    System.out.println("(4) Ver informações da empresa");
                     System.out.println("(0) Sair");
                     answer = input.nextInt();
                     input.nextLine(); //Tira o \n
@@ -91,31 +84,29 @@ public class Company {
             }
         }while(answer > 0);
                 
-        //Salva os clientes e seus veículos em um arquivo e os empregados em outro
-        WorkingFile.saveData(customers, "customersData");
-        WorkingFile.saveData(employees, "employeesData");
-        WorkingFile.saveData(insumos, "insumosData");
-        WorkingFile.saveData(finanças, "financasData");
-        WorkingFile.saveData(services, "servicesData");
+        /* Salva as informações para poder
+        recuperar na próxima vez que executar
+        o programa */
+        System.out.println("Salvando...");
+        Arquivos.saveData(customers, "customersData");
+        Arquivos.saveData(employees, "employeesData");
+        Arquivos.saveData(insumos, "insumosData");
+        Arquivos.saveData(finanças, "financasData");
+        Arquivos.saveData(lavagem, "lavagemData");
         
-        Relatorios.gerarRelatorioClientes(customers, "Clientes");
-        Relatorios.gerarRelatorioVehicles(customers, "Veiculos");
-        //Salva também como um texto formatado, para facilitar a visualização
-        //WorkingFile.write()
-        //WorkingFile.write()
-        //Vou pesquisar para ver como manipular arquivos em Java
-        
-        
-        //Salva os relatórios e insumos para poder
-        //recuperar na próxima execução
-
+        /* Salva os arquivos para leitura */
+        Arquivos.saveCustomers(customers, "Clientes");
+        Arquivos.saveEmployees(employees, "Funcionários");
+        Arquivos.saveVehicles(customers, "Veículos");
+        Arquivos.saveInsumos(insumos, "Insumos");
         
         System.out.println("Saindo...");
     }
     public boolean menuFuncionario()
     {
         Scanner input = new Scanner(System.in);
-        services.mostrarFila();
+        System.out.println("");
+        lavagem.mostrarFila();
         System.out.println("\n\tFUNCIONARIO");
         System.out.println("(1) Cadastrar cliente");
         System.out.println("(2) Cadastrar veículo");
@@ -141,7 +132,7 @@ public class Company {
                 cadastrarVeiculo();
                 break;
             case 3:
-                double valor = services.executar();
+                double valor = lavagem.executar();
                 if(valor != 0)
                     finanças.caixaIn(valor);
                 else
@@ -150,10 +141,10 @@ public class Company {
             case 4:
                 System.out.print("Digite a placa do veículo: ");
                 board = input.nextLine();
-                car = services.procurarVeiculoNoSistema(board, customers);
+                car = procurarVeiculoNoSistema(board, customers);
                 if(car != null) //Tudo OK
                 {
-                    fila = services.getFila();
+                    fila = lavagem.getFila();
                     fila.add(car);
                     System.out.println("Veiculo adicionado à lista com sucesso!");
                 }
@@ -164,14 +155,14 @@ public class Company {
                 }
                 break;
             case 5:
-                String tempo = services.estimarTempoDeEspera();
+                String tempo = lavagem.estimarTempoDeEspera();
                 System.out.println(tempo);
                 break;
             case 6:
                 System.out.print("Digite a placa do veículo: ");
                 board = input.nextLine();
-                car = services.procurarVeiculoNoSistema(board, customers);
-                String rel = services.fazDiagnostico(car);
+                car = procurarVeiculoNoSistema(board, customers);
+                String rel = Service.fazDiagnostico(car);
                 System.out.println(rel);
                 break;
             case 7:
@@ -191,12 +182,12 @@ public class Company {
     {
         Scanner input = new Scanner(System.in);
         System.out.println("\n\tGERENTE");
-        System.out.println("(1) Mudar preços da lavagem");
-        System.out.println("(2) Checar insumos");
-        System.out.println("(3) Comprar insumos");
-        System.out.println("(4) Gerar relatórios / Encerrar");
-        System.out.println("(5) Contratar um funcionário");
-        System.out.println("(6) Listar dados");
+        System.out.println("(1) Contratar um funcionário");
+        System.out.println("(2) Listar dados");
+        System.out.println("(3) Gerar relatórios / Encerrar");
+        System.out.println("(4) Checar insumos");
+        System.out.println("(5) Comprar insumos");
+        System.out.println("(6) Mudar preços da lavagem");
         System.out.println("(0) Voltar ao menu principal");  
         int answer = input.nextInt();
         input.nextLine(); //Tira o \n
@@ -206,20 +197,32 @@ public class Company {
         switch(answer)
         {
             case 1:
-                System.out.println("  Digite os novos preços");
-                System.out.print("Veículos pequenos: ");
-                double valSmall = input.nextDouble();
-                System.out.print("Veículos médios: ");
-                double valMed = input.nextDouble();
-                System.out.print("Veículos grandes: ");
-                double valBig = input.nextDouble();
-                services.setValues(valSmall, valMed, valBig);
+                cadastrarFuncionario();
                 break;
             case 2:
+                System.out.println("(1) Clientes");
+                System.out.println("(2) Funcionários");
+                System.out.println("(3) Todos os veículos");
+                System.out.println("(4) Veículos de um cliente");
+                System.out.println("(0) Voltar");
+                opcao = input.nextInt();
+                input.nextLine(); //Tira o \n
+                System.out.println("");
+                listarDados(opcao);
+                break;
+            case 3:
+                System.out.println("(1) Diário / Encerra dia");
+                System.out.println("(2) Mensal / Encerra mes");
+                System.out.println("(3) Anual / Encerra ano");
+                opcao = input.nextInt();
+                System.out.println("");
+                gerarRelatorio(opcao);
+                break;
+            case 4:
                 String rel = insumos.gerarRelatorio();
                 System.out.println(rel);
                 break;
-            case 3:
+            case 5:
                 System.out.println("Quantidade de cada insumo comprado");
                 System.out.print("Sabao: ");
                 int sabao = input.nextInt();
@@ -233,27 +236,15 @@ public class Company {
                                     panos*insumos.getPanos();
                 finanças.caixaOut(valorGasto, 1);
                 break;
-            case 4:
-                System.out.println("(1) Diário / Encerra dia");
-                System.out.println("(2) Mensal / Encerra mes");
-                System.out.println("(3) Anual / Encerra ano");
-                opcao = input.nextInt();
-                System.out.println("");
-                gerarRelatorio(opcao);
-                break;
-            case 5:
-                cadastrarFuncionario();
-                break;
             case 6:
-                System.out.println("(1) Clientes");
-                System.out.println("(2) Funcionários");
-                System.out.println("(3) Todos os veículos");
-                System.out.println("(4) Veículos de um cliente");
-                System.out.println("(0) Voltar");
-                opcao = input.nextInt();
-                input.nextLine(); //Tira o \n
-                System.out.println("");
-                listarDados(opcao);
+                System.out.println("  Digite os novos preços");
+                System.out.print("Veículos pequenos: ");
+                double prcSmall = input.nextDouble();
+                System.out.print("Veículos médios: ");
+                double prcMed = input.nextDouble();
+                System.out.print("Veículos grandes: ");
+                double prcBig = input.nextDouble();
+                lavagem.setPrices(prcSmall, prcMed, prcBig);
                 break;
             case 0:
                 return true;
@@ -302,6 +293,7 @@ public class Company {
             {
                 p.adicionaVeiculo();
                 System.out.println("Veículo cadastrado com sucesso!");
+                return;
             }
         System.out.println("Cliente não encontrado!");
     }
@@ -344,31 +336,26 @@ public class Company {
         switch(opcao)
         {
             case 1:
-                System.out.println("\tLISTA DE CLIENTES");
+                rel = "\tLISTA DE CLIENTES\n";
                 for(Customer p : customers)
-                {
-                    rel = p.gerarRelatorio();
-                    System.out.println(rel);
-                }
+                    rel += p.getName() + "\t" + p.getDateOfInsert() + "\n";
+                System.out.println(rel);
                 break;
             case 2:
-                System.out.println("\tLISTA DE FUNCIONARIOS");
-                for(Employee em : employees){
-                    rel = em.gerarRelatorio();
-                    System.out.println(rel);
-                }
+                rel = "\tLISTA DE FUNCIONARIOS\n";
+                for(Employee em : employees)
+                    rel += em.getName() + "\t" + em.getHiringDate() + "\n";
+                System.out.println(rel);
                 break;
             case 3:
-                System.out.println("\tLISTA DE VEICULOS");
+                rel = "\tLISTA DE VEICULOS\n";
                 for(Customer p : customers)
                 {
-                    System.out.println("Proprietario: " + p.getName());
+                    rel += "Proprietario: " + p.getName() + "\n";
                     for(Vehicle v : p.vehiclesOfCustomer)
-                    {
-                        rel = v.gerarRelatorio();
-                        System.out.println(rel);
-                    }
+                        rel += v.getBoard() + "\t" + v.getBrand() + "\t" + v.getModel() + "\n";
                 }
+                System.out.println(rel);
                 break;
             case 4:
                 System.out.print("Digite o nome do proprietario: ");
@@ -378,12 +365,10 @@ public class Company {
                     if(name.equals(p.getName()))
                     {
                         achou = true;
-                        System.out.println("\tVEICULOS DE " + name);
+                        rel = "\tVEICULOS DE " + name + "\n";
                         for(Vehicle v : p.vehiclesOfCustomer)
-                        {
-                            rel = v.gerarRelatorio();
-                            System.out.println(rel);
-                        }
+                            rel += v.getBoard() + "\t" + v.getBrand() + "\t" + v.getModel() + "\n";
+                        System.out.println(rel);
                         break;
                     }
                 if(achou==false)
@@ -463,7 +448,46 @@ public class Company {
         Calendar c = Calendar.getInstance();
         int dia = c.get(Calendar.DAY_OF_MONTH)-1;
         int mes = c.get(Calendar.MONTH);
-        String rel;
+        String rel,
+               nomeMes;
+        switch(mes)
+        {
+            case 0:
+                nomeMes = "Janeiro";
+                break;
+            case 1:
+                nomeMes = "Fevereiro";
+                break;
+            case 2:
+                nomeMes = "Março";
+                break;
+            case 3:
+                nomeMes = "Abril";
+                break;
+            case 4:
+                nomeMes = "Maio";
+                break;
+            case 5:
+                nomeMes = "Junho";
+                break;
+            case 6:
+                nomeMes = "Julho";
+                break;
+            case 7:
+                nomeMes = "Agosto";
+                break;
+            case 8:
+                nomeMes = "Setembro";
+                break;
+            case 9:
+                nomeMes = "Outubro";
+                break;
+            case 10:
+                nomeMes = "Novembro";
+                break;
+            default:
+                nomeMes = "Dezembro";
+        }
         
         double valor=0;
         switch (opcao) {
@@ -471,23 +495,21 @@ public class Company {
                 //Não vale a pena guardar relatórios diários
                 //em arquivos, basta mostrar na tela se o gerente pedir
                 System.out.println("RELATÓRIO DO DIA " + (dia+1));
-                System.out.println("Serviços realizados: " + services.getServDia(dia));
+                System.out.println("Serviços realizados: " + lavagem.getServDia(dia));
                 System.out.println("Lucros: " + finanças.getLucroDia(dia));
                 break;
             case 2:
-                //Mensal
-                //Paga contas como luz, água, etc
-                //E os funcionários
                 finanças.caixaOut(finanças.getValorContas(), 0);
                 finanças.caixaOut(finanças.calculaSalarios(employees), 0);
-                rel = "DADOS DO MES " + (mes+1) + "\n";
+                rel = "DADOS DO MES " + nomeMes + "\n";
                 rel = rel + "DIA\tSERVIÇOS\tLUCRO \n";
                 for(int i=0; i < 31; i++)
                 {
-                    rel = rel + (i+1) + "\t" + services.getServDia(i) + "\t" +
+                    rel = rel + (i+1) + "\t" + lavagem.getServDia(i) + "\t" +
                             finanças.getLucroDia(i) + "\n";
                     valor += finanças.getLucroDia(i);
-                }   rel = rel + "+" + valor + "\tTotal \n";
+                } 
+                rel = rel + "+" + valor + "\tTotal \n";
                 rel = rel + "-" + finanças.getGastosInsumos() + "\tInsumos \n";
                 rel = rel + "-" + finanças.calculaSalarios(employees) + "\tPagamentos \n";
                 rel = rel + "-" + finanças.getValorContas() + "\tContas \n";
@@ -497,24 +519,25 @@ public class Company {
                         - finanças.getValorContas();
                 rel = rel + valor + " Lucro do mês \n";
                 finanças.setLucroMes(mes, valor);
-                rel = rel + finanças.getSaldoAtual() + " Saldo atual \n";
-                System.out.println(rel);
-                relMensal[mes] = rel;
+                rel = rel + finanças.getSaldoAtual() + " Saldo atual";
+                Arquivos.saveRelatorio(rel, nomeMes);
+                
                 //Reseta os dias para começar um novo mês
                 finanças.resetaDias();
+                lavagem.resetaDias();
                 break;
             case 3:
                 //Anual
                 rel = "DADOS DE " + c.get(Calendar.YEAR) + "\n";
                 rel = rel + "MES\tSERVIÇOS\tLUCRO \n";
                 for(int i=0; i < 12; i++)
-                    rel = rel + i + "\t" + services.getServMes(i) + "\t" +
+                    rel = rel + nomeMes + "\t" + lavagem.getServMes(i) + "\t" +
                             finanças.getLucroMes(i) + "\n";
-                rel = rel + finanças.getSaldoAtual() + " Saldo atual \n";
-                System.out.println(rel);
-                relAnual = rel;
+                rel = rel + finanças.getSaldoAtual() + " Saldo atual";
                 //Reseta os meses para começar um novo ano
                 finanças.resetaMeses();
+                lavagem.resetaMeses();
+                Arquivos.saveRelatorio(rel, "Relatório Anual");
                 break;
             case 0:
                 break;
@@ -523,12 +546,12 @@ public class Company {
                 break;
         }
     }
-    public void imprimeInfoEmpresa()
+    public Vehicle procurarVeiculoNoSistema(String board, ArrayList<Customer> customers)
     {
-        System.out.println("Nome: " + name_company);
-        System.out.println("Endereço: " + address_company);
-        System.out.println("Telefone: " + phone_company);
-        System.out.println("Site: " + site_company);
-        System.out.println("CNPJ: " + cnpj);
+        for(Customer p : customers)
+            for(Vehicle v : p.vehiclesOfCustomer)
+                if(board.equals(v.getBoard()))
+                    return v;
+        return null;
     }
 }

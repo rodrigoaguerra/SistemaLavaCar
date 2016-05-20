@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sistema.lavacar;
 
 import java.io.Serializable;
@@ -26,14 +21,16 @@ public class Employee  extends Person implements Serializable{
         
         payment = p;
     }
+    @Override
     public String gerarRelatorio()
     {
         String rel = "";
         rel = rel + "Nome: " + name + "\tRG: " + rg + "\tCPF: " + cpf + "\n";
         rel = rel + "Telefone 1: " + phone1 + "\tTelefone 2: " + phone2 + "\n";
         rel = rel + "Endereço: " + address + "\tData de nascimento: " + dateOfBirth + "\n";
-        rel = rel + "Data de contratação: " + hiringDate + "\n";
+        rel = rel + "Data de contratação: " + hiringDate;
         return rel;
     }
     public double getPayment() { return payment; }
+    public String getHiringDate() { return hiringDate; }
 }

@@ -1,0 +1,4 @@
+INSUMOS
+Sabão: 98
+Esponjas: 96
+Panos: 96
