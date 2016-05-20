@@ -2,7 +2,6 @@
 package sistema.lavacar;
 
 import java.io.Serializable;
-import java.util.Scanner;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Random;
@@ -59,7 +58,7 @@ public class Vehicle implements Serializable {
         rel = rel + "Marca: " + brand + "\tModelo: " + model + "\n";
         rel = rel + "Placa: " + board + "\tAno: " + year + "\tCor: " + color + "\n";
         rel = rel + "Data de cadastro: " + dateOfInsert + "\n";
-        rel = rel + "Descrição: " + description + "\n";
+        rel = rel + "Descrição: " + description;
         return rel;
     }
     public void setColor(String color)
@@ -70,6 +69,8 @@ public class Vehicle implements Serializable {
     {
         this.description = description;
     }
+    public String getBrand() { return brand; }
+    public String getModel() { return model; }
     public String getBoard() { return board; }
     public int getSize() { return size; }
 
