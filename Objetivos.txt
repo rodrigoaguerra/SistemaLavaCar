@@ -1,5 +1,22 @@
+ 
+Edit: Tudo funcionando.
+Adicionem alguns clientes e funcionários e dêem upload
+de todos esses arquivos no GitHub, senão acontece aquele
+problema do programa não conseguir encontrar os arquivos:
 
-Conforme formos implementando, vamos ir anotando o que está pronto
+ ~ src/sistema/lavacar/~~~~.java
+ ~ build/classes/sistema/lavacar/~~~~.class
+ ~ data/~~~~.txt
+ ~ relatorios/~~~~.txt
+ ~ build/built-jar.properties
+ ~ dist/SistemaLavaCar.jar
+ 
+ 
+ ~~ Qualidade do relatório final (adequação ao documento de regras) - 15 PONTOS
+    (  )  Later
+    (  )  Diagrama de classes UML
+
+
  ~~ Cadastro de clientes - 10 
     (OK) Cadastrar
     (OK) Listar todos
@@ -26,12 +43,7 @@ Conforme formos implementando, vamos ir anotando o que está pronto
     (OK)  Mensal
     (OK)  Anual
  ~~ Salvamento dos dados em arquivos (cadastros, estoque de insumos) - 10 PONTOS
-    (OK)  Salvar info dos cadastros e recuperar esses dados no início do programa
-    (  )  Salvar os cadastros em outro arquivo como strings, ou seja, formatados
-          como bem entendermos, para poder visualizar mais facilmente
-    (  )  Salvar estoque de insumos, numServ e finanças, de maneira
-          que seja possível recuperar esses dados no início do programa
-    (  )  Salvar relatórios
- ~~ Qualidade do relatório final (adequação ao documento de regras) - 15 PONTOS
-    (  )  Later
-    (  )  Diagrama de classes UML
+    (OK)  Salvar os Customers, Employees, Vehicles, Insumos e relatórios
+            mensais e anuais em arquivos de leitura
+    (OK)  Salvar info dos customers, employees, vehicles, insumos
+        serviços/lavagem e RECUPERAR quando rodar o programa outra vez
