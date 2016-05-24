@@ -1,13 +1,10 @@
+
 package sistema.lavacar;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-/**
- *
- * @author rodrigo
- */
 public class Employee  extends Person implements Serializable{
     private final String hiringDate;
     private double payment;
