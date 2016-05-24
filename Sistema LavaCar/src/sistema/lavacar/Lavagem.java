@@ -8,7 +8,6 @@ public class Lavagem extends Service implements Serializable{
     private int tempoSmall;
     private int tempoMedium;
     private int tempoBig;
-    protected Insumos insumos;
     
     public Lavagem(double vs, double vm, double vb)
     {
@@ -82,9 +81,4 @@ public class Lavagem extends Service implements Serializable{
         String tempo = min/60 + "h" + min%60 + "min";
         return tempo;
     }
-    public void setInsumos(Insumos i)
-    {
-        insumos = i;
-    }
-    public Insumos getInsumos() { return insumos; }
 }
