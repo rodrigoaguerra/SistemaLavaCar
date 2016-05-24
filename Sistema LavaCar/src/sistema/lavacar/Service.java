@@ -1,15 +1,17 @@
+
 package sistema.lavacar;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Service implements Serializable{
+public abstract class Service implements Serializable{
     protected double priceSmall; //Preço do serviço
     protected double priceMedium;
     protected double priceBig;
     protected int[] servDia;
     protected int[] servMes;
     protected ArrayList<Vehicle> fila;
+    protected Insumos insumos;
 
     public Service(double vs, double vm, double vb)
     {
@@ -20,15 +22,9 @@ public class Service implements Serializable{
         servMes = new int[12];
         fila = new ArrayList<>();
     }
-    public double executar()
-    {
-        //Abstract
-        return 0;
-    }
-    public String estimarTempoDeEspera() {
-        //Abstract
-        return null;
-    }
+    
+    abstract public double executar();
+    abstract public String estimarTempoDeEspera();
     
     public static String fazDiagnostico (Vehicle v)
     {
@@ -76,14 +72,6 @@ public class Service implements Serializable{
     {
         return fila;
     }
-    public void mostrarFila()
-    {
-        if(fila.isEmpty())
-            return;
-        System.out.println("\tVEÍCULOS NA FILA");
-        for(int i=0; i < fila.size(); i++)
-            System.out.println(fila.get(i).getBoard());
-    }
     public void setPrices(double s, double m, double b)
     {
         priceSmall = s;
@@ -105,4 +93,10 @@ public class Service implements Serializable{
     public double getPriceBig(){ return priceBig; }
     public int getServDia(int d) { return servDia[d]; }
     public int getServMes(int m) { return servMes[m]; }
+    
+    public void setInsumos(Insumos i)
+    {
+        insumos = i;
+    }
+    public Insumos getInsumos() { return insumos; }
 }
