@@ -120,11 +120,4 @@ public class UserInterface {
                 System.out.println("Opcao inválida");
         }
     }
-    public int retornaOpcao()
-    {
-        Scanner input = new Scanner(System.in);
-        int opcao = input.nextInt();
-        input.nextLine();
-        return opcao;
-    }
 }
