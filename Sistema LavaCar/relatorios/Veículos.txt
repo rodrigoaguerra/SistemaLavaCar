@@ -16,3 +16,9 @@ Data de cadastro: 19/05/2016 17:04:40
 Descrição: ...
 ___________________________________________
 
+Marca: Ford	Modelo: K
+Placa: ANA-5675	Ano: 2009	Cor: Verde
+Data de cadastro: 24/05/2016 17:05:59
+Descrição: ...
+___________________________________________
+
