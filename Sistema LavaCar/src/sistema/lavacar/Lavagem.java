@@ -82,3 +82,4 @@ public class Lavagem extends Service implements Serializable{
         return tempo;
     }
 }
+
