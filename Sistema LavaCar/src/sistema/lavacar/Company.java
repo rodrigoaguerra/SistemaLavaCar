@@ -30,6 +30,13 @@ public class Company {
         this.cnpj = cnpj;
         this.interf = interf;
         dao = new DAOArquivos();
+        
+        /* Cria objetos padrão na construtora,
+        depois substitui pelos lidos do arquivo.
+        
+        Podemos chamar os métodos recoverData do
+        DAO dentro do construtor? */
+        
         insumos = new Insumos(100, 100, 100);
         finanças = new Finanças();
         lavagem = new Lavagem(40.00, 50.00, 60.00);
@@ -77,7 +84,7 @@ public class Company {
                     break;
                 default:
                     interf.menuPrincipal(name_company);
-                    opcao = interf.retornaOpcao();
+                    opcao = input.nextInt();
             }
             if(querVoltar == true)
             {
