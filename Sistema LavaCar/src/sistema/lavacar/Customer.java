@@ -1,3 +1,4 @@
+
 package sistema.lavacar;
 
 import java.io.Serializable;
@@ -6,10 +7,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Scanner;
 
-/**
- *
- * @author rodrigo
- */
 public class Customer extends Person implements Serializable {
     private final String dateOfInsert;
     public ArrayList<Vehicle> vehiclesOfCustomer;
