@@ -1,20 +1,10 @@
  
 Edit: Tudo funcionando.
-Adicionem alguns clientes e funcionários e dêem upload
-de todos esses arquivos no GitHub, senão acontece aquele
-problema do programa não conseguir encontrar os arquivos:
+Só falta o relatório final. Em um final de semana nós fazemos.
 
- ~ src/sistema/lavacar/~~~~.java
- ~ build/classes/sistema/lavacar/~~~~.class
- ~ data/~~~~.txt
- ~ relatorios/~~~~.txt
- ~ build/built-jar.properties
- ~ dist/SistemaLavaCar.jar
- 
- 
  ~~ Qualidade do relatório final (adequação ao documento de regras) - 15 PONTOS
     (  )  Later
-    (  )  Diagrama de classes UML
+    (OK)  Diagrama de classes UML
 
 
  ~~ Cadastro de clientes - 10 
