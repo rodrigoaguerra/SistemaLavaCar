@@ -92,7 +92,7 @@ public class Company {
                 querVoltar = false;
             }
         }while(opcao > 0);
-                
+
         /* Salva as informações para poder
         recuperar na próxima vez que executar
         o programa */
