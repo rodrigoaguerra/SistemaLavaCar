@@ -157,8 +157,17 @@ public class Company {
                 System.out.print("Digite a placa do veículo: ");
                 board = input.nextLine();
                 car = procurarVeiculoNoSistema(board, customers);
-                String rel = Service.fazDiagnostico(car);
-                System.out.println(rel);
+                if(car != null) //Tudo OK
+                {
+                    String rel = Service.fazDiagnostico(car);
+                    System.out.println(rel);
+                }
+                else //O veículo não está cadastrado no sistema
+                {
+                    System.out.println("Veiculo nao encontrado.");
+                    cadastrarVeiculo();
+                }
+
                 break;
             case 7:
                 editarDados(1);
@@ -379,46 +388,7 @@ public class Company {
         Calendar c = Calendar.getInstance();
         int dia = c.get(Calendar.DAY_OF_MONTH)-1;
         int mes = c.get(Calendar.MONTH);
-        String rel,
-               nomeMes;
-        switch(mes)
-        {
-            case 0:
-                nomeMes = "Janeiro";
-                break;
-            case 1:
-                nomeMes = "Fevereiro";
-                break;
-            case 2:
-                nomeMes = "Março";
-                break;
-            case 3:
-                nomeMes = "Abril";
-                break;
-            case 4:
-                nomeMes = "Maio";
-                break;
-            case 5:
-                nomeMes = "Junho";
-                break;
-            case 6:
-                nomeMes = "Julho";
-                break;
-            case 7:
-                nomeMes = "Agosto";
-                break;
-            case 8:
-                nomeMes = "Setembro";
-                break;
-            case 9:
-                nomeMes = "Outubro";
-                break;
-            case 10:
-                nomeMes = "Novembro";
-                break;
-            default:
-                nomeMes = "Dezembro";
-        }
+        String rel;
         
         double valor=0;
         switch (opcao) {
@@ -432,7 +402,7 @@ public class Company {
             case 2:
                 finanças.caixaOut(finanças.getValorContas(), 0);
                 finanças.caixaOut(finanças.calculaSalarios(employees), 0);
-                rel = "DADOS DO MES " + nomeMes + "\n";
+                rel = "DADOS DO MES " + nomeMes(mes) + "\n";
                 rel = rel + "DIA\tSERVIÇOS\tLUCRO \n";
                 for(int i=0; i < 31; i++)
                 {
@@ -451,10 +421,11 @@ public class Company {
                 rel = rel + valor + " Lucro do mês \n";
                 finanças.setLucroMes(mes, valor);
                 rel = rel + finanças.getSaldoAtual() + " Saldo atual";
-                dao.saveRelatorio(rel, nomeMes);
+                dao.saveRelatorio(rel, nomeMes(mes));
                 
                 //Reseta os dias para começar um novo mês
                 finanças.resetaDias();
+                finanças.resetaGastosInsumos();
                 lavagem.resetaDias();
                 break;
             case 3:
@@ -462,7 +433,7 @@ public class Company {
                 rel = "DADOS DE " + c.get(Calendar.YEAR) + "\n";
                 rel = rel + "MES\tSERVIÇOS\tLUCRO \n";
                 for(int i=0; i < 12; i++)
-                    rel = rel + nomeMes + "\t" + lavagem.getServMes(i) + "\t" +
+                    rel = rel + nomeMes(i) + "\t" + lavagem.getServMes(i) + "\t" +
                             finanças.getLucroMes(i) + "\n";
                 rel = rel + finanças.getSaldoAtual() + " Saldo atual";
                 //Reseta os meses para começar um novo ano
@@ -475,6 +446,37 @@ public class Company {
             default:
                 System.out.println("Opçao inválida");
                 break;
+        }
+    }
+    public String nomeMes(int mes)
+    {
+        String nomeMes;
+        switch(mes)
+        {
+            case 0:
+                return "Janeiro";
+            case 1:
+                return "Fevereiro";
+            case 2:
+                return "Março";
+            case 3:
+                return "Abril";
+            case 4:
+                return "Maio";
+            case 5:
+                return "Junho";
+            case 6:
+                return "Julho";
+            case 7:
+                return "Agosto";
+            case 8:
+                return "Setembro";
+            case 9:
+                return "Outubro";
+            case 10:
+                return "Novembro";
+            default:
+                return "Dezembro";
         }
     }
     public Vehicle procurarVeiculoNoSistema(String board, ArrayList<Customer> customers)
