@@ -45,6 +45,10 @@ public class Finanças implements Serializable{
         for(int i=0; i < 12; i++)
             lucroMes[i] = 0;
     }
+    public void resetaGastosInsumos()
+    {
+        gastosInsumos = 0;
+    }
     public void setLucroMes(int m, double valor)
     {
         lucroMes[m] = valor;
