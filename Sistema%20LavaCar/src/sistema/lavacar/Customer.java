@@ -21,7 +21,6 @@ public class Customer extends Person implements Serializable {
         dateOfInsert = sdf.format(c.getTime());
         
         vehiclesOfCustomer = new ArrayList<>();
-        adicionaVeiculo();
     }
     @Override
     public String gerarRelatorio()
@@ -33,27 +32,9 @@ public class Customer extends Person implements Serializable {
         rel = rel + "Data de cadastro: " + dateOfInsert;
         return rel;
     }
-    public void adicionaVeiculo()
+    public void adicionaVeiculo(String br, String bo, String m, String y,
+                            String c, String d, int size)
     {
-        Scanner input = new Scanner (System.in);  
-        String br, m, bo, y, c, d;
-        int size;
-        System.out.println("\tInformaçoes do veiculo");  
-        System.out.print("Marca .: "); 
-        br = input.nextLine(); 
-        System.out.print("Modelo .: "); 
-        m = input.nextLine(); 
-        System.out.print("Placa .: "); 
-        bo = input.nextLine(); 
-        System.out.print("Ano .: "); 
-        y = input.nextLine(); 
-        System.out.print("Cor .: "); 
-        c = input.nextLine(); 
-        System.out.print("Decrição .: ");   
-        d = input.nextLine();   
-        System.out.print("Tamanho (1 - Pequeno, 2 - Médio, 3 - Grande) .: ");   
-        size = input.nextInt();
-        
         Vehicle vehicle = new Vehicle(br, m, bo, y, c, d, size);
         vehiclesOfCustomer.add(vehicle);
     }

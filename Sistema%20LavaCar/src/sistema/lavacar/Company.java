@@ -248,23 +248,18 @@ public class Company {
         }
         return false;
     }
-    public void criaPessoa(String n, String rg, String cpf, String d, String m,
-                           String y, String a, String p1, String p2)
+    public void criaPessoa(String n, String rg, String cpf, String birth,
+                        String a, String p1, String p2)
     {
-        String dateOfBirth = d + "/" + m + "/" + y;
         Customer person = new Customer(n, rg, cpf,
-                            dateOfBirth, a, p1, p2); 
+                            birth, a, p1, p2); 
         customers.add(person);
     }
     public Customer procuraPessoa(String nome)
     {
         for(Customer p : customers)
             if(nome.equals(p.getName()))
-            {
-                p.adicionaVeiculo();
-                System.out.println("Veículo cadastrado com sucesso!");
                 return p;
-            }    
         return null;
     }
     
@@ -276,7 +271,7 @@ public class Company {
         for(Customer p : customers)
             if(name.equals(p.getName()))
             {
-                p.adicionaVeiculo();
+        //        p.adicionaVeiculo();
                 System.out.println("Veículo cadastrado com sucesso!");
                 return;
             }

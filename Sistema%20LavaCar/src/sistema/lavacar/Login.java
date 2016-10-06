@@ -128,7 +128,6 @@ public class Login extends javax.swing.JFrame {
         if(user.getText().equals("Bob") && new String(senha.getPassword()).equals("marley"))
         {
             this.setVisible(false);
-            menuF.setSize(300, 400);
             menuF.setLocationRelativeTo(null);
             menuF.setVisible(true);
         }

@@ -72,6 +72,9 @@ public class Vehicle implements Serializable {
     public String getBrand() { return brand; }
     public String getModel() { return model; }
     public String getBoard() { return board; }
+    public String getYear() { return year; }
+    public String getColor() { return color; }
+    public String getDescription() { return description; }
     public int getSize() { return size; }
 
     public boolean getMotor() { return motor; }

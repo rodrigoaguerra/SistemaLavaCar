@@ -33,482 +33,77 @@ public class MenuFuncionario extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        cards = new javax.swing.JPanel();
-        menuF = new javax.swing.JPanel();
-        botCadastrarCliente = new javax.swing.JButton();
-        botCadastrarVeiculo = new javax.swing.JButton();
-        botLavar = new javax.swing.JButton();
-        botColocarNaFila = new javax.swing.JButton();
-        botDiagnostico = new javax.swing.JButton();
-        botEditar = new javax.swing.JButton();
-        voltar = new javax.swing.JButton();
-        cadCliente = new javax.swing.JPanel();
-        nameLabel = new javax.swing.JLabel();
-        address = new javax.swing.JTextField();
-        phone1 = new javax.swing.JTextField();
-        phone2 = new javax.swing.JTextField();
-        rgLabel = new javax.swing.JLabel();
-        name = new javax.swing.JTextField();
-        cpfLabel = new javax.swing.JLabel();
-        rg = new javax.swing.JTextField();
-        birthLabel = new javax.swing.JLabel();
-        cpf = new javax.swing.JTextField();
-        addressLabel = new javax.swing.JLabel();
-        dia = new javax.swing.JTextField();
-        phone1Label = new javax.swing.JLabel();
-        mes = new javax.swing.JTextField();
-        phone2Label = new javax.swing.JLabel();
-        ano = new javax.swing.JTextField();
-        cancelarPessoa = new javax.swing.JButton();
-        concluirPessoa = new javax.swing.JButton();
-        PanelVehicle1 = new javax.swing.JPanel();
-        sizeLabel1 = new javax.swing.JLabel();
-        brandLabel1 = new javax.swing.JLabel();
-        modelLabel1 = new javax.swing.JLabel();
-        boardLabel1 = new javax.swing.JLabel();
-        descriptionLabel1 = new javax.swing.JLabel();
-        brand1 = new javax.swing.JTextField();
-        model1 = new javax.swing.JTextField();
-        pequeno1 = new javax.swing.JRadioButton();
-        board1 = new javax.swing.JTextField();
-        medio1 = new javax.swing.JRadioButton();
-        year1 = new javax.swing.JTextField();
-        grande1 = new javax.swing.JRadioButton();
-        description1 = new javax.swing.JTextField();
-        vehicleLabel1 = new javax.swing.JLabel();
-        anoLabel2 = new javax.swing.JLabel();
+        jTabFuncionário = new javax.swing.JTabbedPane();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
         cadVeiculo = new javax.swing.JPanel();
-        concluirVeículo = new javax.swing.JButton();
-        cancelarVeículo = new javax.swing.JButton();
         ownerLabel = new javax.swing.JLabel();
         owner = new javax.swing.JTextField();
-        PanelVehicle2 = new javax.swing.JPanel();
-        sizeLabel2 = new javax.swing.JLabel();
-        brandLabel2 = new javax.swing.JLabel();
-        modelLabel2 = new javax.swing.JLabel();
-        boardLabel2 = new javax.swing.JLabel();
-        descriptionLabel2 = new javax.swing.JLabel();
-        brand2 = new javax.swing.JTextField();
-        model2 = new javax.swing.JTextField();
-        pequeno2 = new javax.swing.JRadioButton();
-        board2 = new javax.swing.JTextField();
-        medio2 = new javax.swing.JRadioButton();
-        year2 = new javax.swing.JTextField();
-        grande2 = new javax.swing.JRadioButton();
-        description2 = new javax.swing.JTextField();
+        concluirVeículo = new javax.swing.JButton();
+        cancelarVeículo = new javax.swing.JButton();
+        PanelVehicle4 = new javax.swing.JPanel();
         vehicleLabel2 = new javax.swing.JLabel();
+        brandLabel2 = new javax.swing.JLabel();
+        brand2 = new javax.swing.JTextField();
+        boardLabel2 = new javax.swing.JLabel();
+        board2 = new javax.swing.JTextField();
+        modelLabel2 = new javax.swing.JLabel();
+        model2 = new javax.swing.JTextField();
         yearLabel2 = new javax.swing.JLabel();
+        year2 = new javax.swing.JTextField();
+        descriptionLabel2 = new javax.swing.JLabel();
+        description2 = new javax.swing.JTextField();
+        sizeLabel2 = new javax.swing.JLabel();
+        pequeno2 = new javax.swing.JRadioButton();
+        medio2 = new javax.swing.JRadioButton();
+        grande2 = new javax.swing.JRadioButton();
+        cadCliente = new javax.swing.JPanel();
+        nameLabel = new javax.swing.JLabel();
+        name = new javax.swing.JTextField();
+        rgLabel = new javax.swing.JLabel();
+        rg = new javax.swing.JTextField();
+        birthLabel = new javax.swing.JLabel();
+        cpfLabel = new javax.swing.JLabel();
+        cpf = new javax.swing.JTextField();
+        addressLabel = new javax.swing.JLabel();
+        address = new javax.swing.JTextField();
+        phone1Label = new javax.swing.JLabel();
+        phone1 = new javax.swing.JTextField();
+        phone2Label = new javax.swing.JLabel();
+        phone2 = new javax.swing.JTextField();
+        concluirPessoa = new javax.swing.JButton();
+        limparPessoa = new javax.swing.JButton();
+        cadVeiculo2 = new javax.swing.JPanel();
+        vehicleLabel = new javax.swing.JLabel();
+        brandLabel = new javax.swing.JLabel();
+        brand = new javax.swing.JTextField();
+        boardLabel = new javax.swing.JLabel();
+        board = new javax.swing.JTextField();
+        modelLabel = new javax.swing.JLabel();
+        model = new javax.swing.JTextField();
+        yearLabel = new javax.swing.JLabel();
+        year = new javax.swing.JTextField();
+        descriptionLabel = new javax.swing.JLabel();
+        description = new javax.swing.JTextField();
+        sizeLabel = new javax.swing.JLabel();
+        pequeno = new javax.swing.JRadioButton();
+        medio = new javax.swing.JRadioButton();
+        grande = new javax.swing.JRadioButton();
+        colorLabel = new javax.swing.JLabel();
+        color = new javax.swing.JTextField();
+        birth = new javax.swing.JFormattedTextField();
+        jCheckEditar = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cards.setLayout(new java.awt.CardLayout());
+        jTabFuncionário.addTab("Serviço", jTabbedPane2);
 
-        menuF.setMaximumSize(new java.awt.Dimension(440, 672));
+        ownerLabel.setText("Proprietário: ");
 
-        botCadastrarCliente.setText("Cadastrar cliente");
-        botCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
+        owner.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botCadastrarClienteActionPerformed(evt);
+                ownerActionPerformed(evt);
             }
         });
-
-        botCadastrarVeiculo.setText("Cadastrar veículo");
-        botCadastrarVeiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botCadastrarVeiculoActionPerformed(evt);
-            }
-        });
-
-        botLavar.setText("Lavar o próximo");
-
-        botColocarNaFila.setText("Colocar na fila");
-
-        botDiagnostico.setText("Diagnóstico do veículo");
-        botDiagnostico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botDiagnosticoActionPerformed(evt);
-            }
-        });
-
-        botEditar.setText("Editar informações");
-
-        voltar.setText("Voltar");
-        voltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                voltarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout menuFLayout = new javax.swing.GroupLayout(menuF);
-        menuF.setLayout(menuFLayout);
-        menuFLayout.setHorizontalGroup(
-            menuFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuFLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(menuFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(botColocarNaFila, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botDiagnostico)
-                    .addComponent(botEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botCadastrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botCadastrarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botLavar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(voltar))
-                .addGap(41, 41, 41))
-        );
-
-        menuFLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {botCadastrarCliente, botCadastrarVeiculo, botColocarNaFila, botDiagnostico, botEditar, botLavar});
-
-        menuFLayout.setVerticalGroup(
-            menuFLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuFLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(botCadastrarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botCadastrarVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botLavar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botColocarNaFila)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botDiagnostico, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(botEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(voltar)
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
-
-        menuFLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {botCadastrarCliente, botCadastrarVeiculo, botColocarNaFila, botDiagnostico, botEditar, botLavar});
-
-        cards.add(menuF, "card1");
-
-        nameLabel.setText("Nome: ");
-
-        address.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressActionPerformed(evt);
-            }
-        });
-
-        phone1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phone1ActionPerformed(evt);
-            }
-        });
-
-        phone2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phone2ActionPerformed(evt);
-            }
-        });
-
-        rgLabel.setText("RG: ");
-
-        cpfLabel.setText("CPF: ");
-
-        birthLabel.setText("Data de Nascimento: ");
-
-        cpf.setColumns(9);
-
-        addressLabel.setText("Endereço: ");
-
-        dia.setColumns(2);
-        dia.setText("DD");
-        dia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                diaActionPerformed(evt);
-            }
-        });
-
-        phone1Label.setText("Telefone:");
-
-        mes.setColumns(2);
-        mes.setText("MM");
-        mes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mesActionPerformed(evt);
-            }
-        });
-
-        phone2Label.setText("Celular: ");
-
-        ano.setColumns(4);
-        ano.setText("AAAA");
-
-        cancelarPessoa.setText("Cancelar");
-        cancelarPessoa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarPessoaActionPerformed(evt);
-            }
-        });
-
-        concluirPessoa.setText("Concluir");
-        concluirPessoa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                concluirPessoaActionPerformed(evt);
-            }
-        });
-
-        sizeLabel1.setText("Tamanho: ");
-
-        brandLabel1.setText("Marca: ");
-
-        modelLabel1.setText("Modelo: ");
-
-        boardLabel1.setText("Placa: ");
-
-        descriptionLabel1.setText("Descrição: ");
-
-        brand1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                brand1ActionPerformed(evt);
-            }
-        });
-
-        model1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                model1ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(pequeno1);
-        pequeno1.setText("Pequeno");
-
-        board1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                board1ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(medio1);
-        medio1.setText("Médio");
-        medio1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                medio1ActionPerformed(evt);
-            }
-        });
-
-        year1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                year1ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(grande1);
-        grande1.setText("Grande");
-
-        vehicleLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        vehicleLabel1.setText("Informações do veículo");
-
-        anoLabel2.setText("Ano: ");
-
-        javax.swing.GroupLayout PanelVehicle1Layout = new javax.swing.GroupLayout(PanelVehicle1);
-        PanelVehicle1.setLayout(PanelVehicle1Layout);
-        PanelVehicle1Layout.setHorizontalGroup(
-            PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 415, Short.MAX_VALUE)
-            .addGroup(PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PanelVehicle1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PanelVehicle1Layout.createSequentialGroup()
-                            .addGroup(PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelVehicle1Layout.createSequentialGroup()
-                                    .addGap(2, 2, 2)
-                                    .addComponent(descriptionLabel1)
-                                    .addGap(165, 165, 165))
-                                .addGroup(PanelVehicle1Layout.createSequentialGroup()
-                                    .addGroup(PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(PanelVehicle1Layout.createSequentialGroup()
-                                            .addComponent(modelLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
-                                            .addGap(1, 1, 1)
-                                            .addComponent(model1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(PanelVehicle1Layout.createSequentialGroup()
-                                            .addComponent(brandLabel1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(brand1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(61, 61, 61)
-                                    .addGroup(PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(boardLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(anoLabel2, javax.swing.GroupLayout.Alignment.TRAILING))))
-                            .addGap(23, 23, 23)
-                            .addGroup(PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(board1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(year1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(PanelVehicle1Layout.createSequentialGroup()
-                            .addGroup(PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelVehicle1Layout.createSequentialGroup()
-                                    .addGap(25, 25, 25)
-                                    .addComponent(sizeLabel1)
-                                    .addGap(6, 6, 6)
-                                    .addComponent(pequeno1)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(medio1)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(grande1))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelVehicle1Layout.createSequentialGroup()
-                                    .addGap(2, 2, 2)
-                                    .addComponent(description1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(PanelVehicle1Layout.createSequentialGroup()
-                            .addGap(118, 118, 118)
-                            .addComponent(vehicleLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap()))
-        );
-        PanelVehicle1Layout.setVerticalGroup(
-            PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
-            .addGroup(PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelVehicle1Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(vehicleLabel1)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(brand1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(brandLabel1))
-                        .addComponent(board1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(PanelVehicle1Layout.createSequentialGroup()
-                            .addGap(3, 3, 3)
-                            .addComponent(boardLabel1)))
-                    .addGroup(PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PanelVehicle1Layout.createSequentialGroup()
-                            .addGap(14, 14, 14)
-                            .addGroup(PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(modelLabel1)
-                                .addComponent(model1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(PanelVehicle1Layout.createSequentialGroup()
-                            .addGap(12, 12, 12)
-                            .addGroup(PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(anoLabel2)
-                                .addComponent(year1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGap(11, 11, 11)
-                    .addComponent(descriptionLabel1)
-                    .addGap(6, 6, 6)
-                    .addComponent(description1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addGroup(PanelVehicle1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PanelVehicle1Layout.createSequentialGroup()
-                            .addGap(4, 4, 4)
-                            .addComponent(sizeLabel1))
-                        .addComponent(pequeno1)
-                        .addComponent(medio1)
-                        .addComponent(grande1))
-                    .addContainerGap()))
-        );
-
-        javax.swing.GroupLayout cadClienteLayout = new javax.swing.GroupLayout(cadCliente);
-        cadCliente.setLayout(cadClienteLayout);
-        cadClienteLayout.setHorizontalGroup(
-            cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cadClienteLayout.createSequentialGroup()
-                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cadClienteLayout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(concluirPessoa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cancelarPessoa)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(cadClienteLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cadClienteLayout.createSequentialGroup()
-                                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(cadClienteLayout.createSequentialGroup()
-                                        .addComponent(nameLabel)
-                                        .addGap(16, 16, 16)
-                                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(21, 21, 21)
-                                        .addComponent(rgLabel))
-                                    .addGroup(cadClienteLayout.createSequentialGroup()
-                                        .addComponent(birthLabel)
-                                        .addGap(4, 4, 4)
-                                        .addComponent(dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cpfLabel)))
-                                .addGap(10, 10, 10)
-                                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(rg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cadClienteLayout.createSequentialGroup()
-                                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(phone1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(cadClienteLayout.createSequentialGroup()
-                                        .addComponent(phone1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(phone2Label)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(phone2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(address))))))
-                .addContainerGap(35, Short.MAX_VALUE))
-            .addGroup(cadClienteLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PanelVehicle1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-
-        cadClienteLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cpf, phone1, phone2, rg});
-
-        cadClienteLayout.setVerticalGroup(
-            cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cadClienteLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(nameLabel))
-                    .addGroup(cadClienteLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(rgLabel))
-                    .addGroup(cadClienteLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(rg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(11, 11, 11)
-                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(cadClienteLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(birthLabel)
-                            .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(cpfLabel)
-                                .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(11, 11, 11)
-                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cadClienteLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(addressLabel))
-                    .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cadClienteLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(phone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(phone2Label)
-                            .addComponent(phone1Label)))
-                    .addGroup(cadClienteLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(phone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(PanelVehicle1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(concluirPessoa)
-                    .addComponent(cancelarPessoa))
-                .addGap(25, 25, 25))
-        );
-
-        cards.add(cadCliente, "card2");
 
         concluirVeículo.setText("Concluir");
         concluirVeículo.addActionListener(new java.awt.event.ActionListener() {
@@ -519,23 +114,10 @@ public class MenuFuncionario extends javax.swing.JFrame {
 
         cancelarVeículo.setText("Cancelar");
 
-        ownerLabel.setText("Proprietário: ");
-
-        owner.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ownerActionPerformed(evt);
-            }
-        });
-
-        sizeLabel2.setText("Tamanho: ");
+        vehicleLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        vehicleLabel2.setText("Informações do veículo");
 
         brandLabel2.setText("Marca: ");
-
-        modelLabel2.setText("Modelo: ");
-
-        boardLabel2.setText("Placa: ");
-
-        descriptionLabel2.setText("Descrição: ");
 
         brand2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -543,20 +125,36 @@ public class MenuFuncionario extends javax.swing.JFrame {
             }
         });
 
-        model2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                model2ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(pequeno2);
-        pequeno2.setText("Pequeno");
+        boardLabel2.setText("Placa: ");
 
         board2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 board2ActionPerformed(evt);
             }
         });
+
+        modelLabel2.setText("Modelo: ");
+
+        model2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                model2ActionPerformed(evt);
+            }
+        });
+
+        yearLabel2.setText("Ano: ");
+
+        year2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                year2ActionPerformed(evt);
+            }
+        });
+
+        descriptionLabel2.setText("Descrição: ");
+
+        sizeLabel2.setText("Tamanho: ");
+
+        buttonGroup1.add(pequeno2);
+        pequeno2.setText("Pequeno");
 
         buttonGroup1.add(medio2);
         medio2.setText("Médio");
@@ -566,56 +164,45 @@ public class MenuFuncionario extends javax.swing.JFrame {
             }
         });
 
-        year2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                year2ActionPerformed(evt);
-            }
-        });
-
         buttonGroup1.add(grande2);
         grande2.setText("Grande");
 
-        vehicleLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        vehicleLabel2.setText("Informações do veículo");
-
-        yearLabel2.setText("Ano: ");
-
-        javax.swing.GroupLayout PanelVehicle2Layout = new javax.swing.GroupLayout(PanelVehicle2);
-        PanelVehicle2.setLayout(PanelVehicle2Layout);
-        PanelVehicle2Layout.setHorizontalGroup(
-            PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PanelVehicle4Layout = new javax.swing.GroupLayout(PanelVehicle4);
+        PanelVehicle4.setLayout(PanelVehicle4Layout);
+        PanelVehicle4Layout.setHorizontalGroup(
+            PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 415, Short.MAX_VALUE)
-            .addGroup(PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(PanelVehicle2Layout.createSequentialGroup()
+            .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(PanelVehicle4Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addGroup(PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PanelVehicle2Layout.createSequentialGroup()
-                            .addGroup(PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelVehicle2Layout.createSequentialGroup()
+                    .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelVehicle4Layout.createSequentialGroup()
+                            .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelVehicle4Layout.createSequentialGroup()
                                     .addGap(2, 2, 2)
                                     .addComponent(descriptionLabel2)
                                     .addGap(165, 165, 165))
-                                .addGroup(PanelVehicle2Layout.createSequentialGroup()
-                                    .addGroup(PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(PanelVehicle2Layout.createSequentialGroup()
-                                            .addComponent(modelLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+                                .addGroup(PanelVehicle4Layout.createSequentialGroup()
+                                    .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(PanelVehicle4Layout.createSequentialGroup()
+                                            .addComponent(modelLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                                             .addGap(1, 1, 1)
                                             .addComponent(model2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(PanelVehicle2Layout.createSequentialGroup()
+                                        .addGroup(PanelVehicle4Layout.createSequentialGroup()
                                             .addComponent(brandLabel2)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(brand2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(61, 61, 61)
-                                    .addGroup(PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(boardLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(yearLabel2, javax.swing.GroupLayout.Alignment.TRAILING))))
                             .addGap(23, 23, 23)
-                            .addGroup(PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(board2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(year2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(PanelVehicle2Layout.createSequentialGroup()
-                            .addGroup(PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelVehicle2Layout.createSequentialGroup()
+                        .addGroup(PanelVehicle4Layout.createSequentialGroup()
+                            .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelVehicle4Layout.createSequentialGroup()
                                     .addGap(25, 25, 25)
                                     .addComponent(sizeLabel2)
                                     .addGap(6, 6, 6)
@@ -624,41 +211,41 @@ public class MenuFuncionario extends javax.swing.JFrame {
                                     .addComponent(medio2)
                                     .addGap(18, 18, 18)
                                     .addComponent(grande2))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelVehicle2Layout.createSequentialGroup()
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelVehicle4Layout.createSequentialGroup()
                                     .addGap(2, 2, 2)
                                     .addComponent(description2, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(PanelVehicle2Layout.createSequentialGroup()
+                        .addGroup(PanelVehicle4Layout.createSequentialGroup()
                             .addGap(118, 118, 118)
                             .addComponent(vehicleLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap()))
         );
-        PanelVehicle2Layout.setVerticalGroup(
-            PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        PanelVehicle4Layout.setVerticalGroup(
+            PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 274, Short.MAX_VALUE)
-            .addGroup(PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelVehicle2Layout.createSequentialGroup()
+            .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelVehicle4Layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(vehicleLabel2)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(brand2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(brandLabel2))
                         .addComponent(board2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(PanelVehicle2Layout.createSequentialGroup()
+                        .addGroup(PanelVehicle4Layout.createSequentialGroup()
                             .addGap(3, 3, 3)
                             .addComponent(boardLabel2)))
-                    .addGroup(PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PanelVehicle2Layout.createSequentialGroup()
+                    .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelVehicle4Layout.createSequentialGroup()
                             .addGap(14, 14, 14)
-                            .addGroup(PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(modelLabel2)
                                 .addComponent(model2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(PanelVehicle2Layout.createSequentialGroup()
+                        .addGroup(PanelVehicle4Layout.createSequentialGroup()
                             .addGap(12, 12, 12)
-                            .addGroup(PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(yearLabel2)
                                 .addComponent(year2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGap(11, 11, 11)
@@ -666,8 +253,8 @@ public class MenuFuncionario extends javax.swing.JFrame {
                     .addGap(6, 6, 6)
                     .addComponent(description2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(18, 18, 18)
-                    .addGroup(PanelVehicle2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PanelVehicle2Layout.createSequentialGroup()
+                    .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelVehicle4Layout.createSequentialGroup()
                             .addGap(4, 4, 4)
                             .addComponent(sizeLabel2))
                         .addComponent(pequeno2)
@@ -696,8 +283,8 @@ public class MenuFuncionario extends javax.swing.JFrame {
             .addGroup(cadVeiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(cadVeiculoLayout.createSequentialGroup()
                     .addGap(41, 41, 41)
-                    .addComponent(PanelVehicle2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(41, Short.MAX_VALUE)))
+                    .addComponent(PanelVehicle4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(90, Short.MAX_VALUE)))
         );
         cadVeiculoLayout.setVerticalGroup(
             cadVeiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -710,200 +297,634 @@ public class MenuFuncionario extends javax.swing.JFrame {
                 .addGroup(cadVeiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(concluirVeículo)
                     .addComponent(cancelarVeículo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
             .addGroup(cadVeiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(cadVeiculoLayout.createSequentialGroup()
                     .addGap(79, 79, 79)
-                    .addComponent(PanelVehicle2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(198, Short.MAX_VALUE)))
+                    .addComponent(PanelVehicle4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(197, Short.MAX_VALUE)))
         );
 
-        cards.add(cadVeiculo, "card3");
+        jTabFuncionário.addTab("Veículo", cadVeiculo);
+
+        nameLabel.setText("Nome: ");
+
+        name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameActionPerformed(evt);
+            }
+        });
+
+        rgLabel.setText("RG: ");
+
+        rg.setEditable(false);
+        rg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rgActionPerformed(evt);
+            }
+        });
+
+        birthLabel.setText("Data de Nascimento: ");
+
+        cpfLabel.setText("CPF: ");
+
+        cpf.setEditable(false);
+        cpf.setColumns(9);
+        cpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpfActionPerformed(evt);
+            }
+        });
+
+        addressLabel.setText("Endereço: ");
+
+        address.setEditable(false);
+        address.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addressActionPerformed(evt);
+            }
+        });
+
+        phone1Label.setText("Telefone:");
+
+        phone1.setEditable(false);
+        phone1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phone1ActionPerformed(evt);
+            }
+        });
+
+        phone2Label.setText("Celular: ");
+
+        phone2.setEditable(false);
+        phone2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phone2ActionPerformed(evt);
+            }
+        });
+
+        concluirPessoa.setText("Concluir");
+        concluirPessoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                concluirPessoaActionPerformed(evt);
+            }
+        });
+
+        limparPessoa.setText("Limpar");
+        limparPessoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limparPessoaActionPerformed(evt);
+            }
+        });
+
+        vehicleLabel.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        vehicleLabel.setText("Informações do veículo");
+
+        brandLabel.setText("Marca: ");
+
+        brand.setEditable(false);
+        brand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brandActionPerformed(evt);
+            }
+        });
+
+        boardLabel.setText("Placa: ");
+
+        board.setEditable(false);
+        board.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boardActionPerformed(evt);
+            }
+        });
+
+        modelLabel.setText("Modelo: ");
+
+        model.setEditable(false);
+        model.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modelActionPerformed(evt);
+            }
+        });
+
+        yearLabel.setText("Ano: ");
+
+        year.setEditable(false);
+        year.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearActionPerformed(evt);
+            }
+        });
+
+        descriptionLabel.setText("Descrição: ");
+
+        description.setEditable(false);
+        description.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descriptionActionPerformed(evt);
+            }
+        });
+
+        sizeLabel.setText("Tamanho: ");
+
+        buttonGroup1.add(pequeno);
+        pequeno.setText("Pequeno");
+        pequeno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pequenoActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(medio);
+        medio.setText("Médio");
+        medio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                medioActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(grande);
+        grande.setText("Grande");
+        grande.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                grandeActionPerformed(evt);
+            }
+        });
+
+        colorLabel.setText("Cor: ");
+
+        color.setEditable(false);
+        color.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                colorActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout cadVeiculo2Layout = new javax.swing.GroupLayout(cadVeiculo2);
+        cadVeiculo2.setLayout(cadVeiculo2Layout);
+        cadVeiculo2Layout.setHorizontalGroup(
+            cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cadVeiculo2Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cadVeiculo2Layout.createSequentialGroup()
+                        .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(52, Short.MAX_VALUE))
+                    .addGroup(cadVeiculo2Layout.createSequentialGroup()
+                        .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(modelLabel)
+                            .addComponent(descriptionLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(colorLabel)
+                        .addGap(27, 27, 27)
+                        .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))))
+            .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(cadVeiculo2Layout.createSequentialGroup()
+                    .addGap(128, 128, 128)
+                    .addComponent(vehicleLabel)
+                    .addGap(118, 118, 118))
+                .addGroup(cadVeiculo2Layout.createSequentialGroup()
+                    .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(cadVeiculo2Layout.createSequentialGroup()
+                            .addGap(35, 35, 35)
+                            .addComponent(sizeLabel)
+                            .addGap(6, 6, 6)
+                            .addComponent(pequeno)
+                            .addGap(18, 18, 18)
+                            .addComponent(medio)
+                            .addGap(18, 18, 18)
+                            .addComponent(grande)
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(cadVeiculo2Layout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(cadVeiculo2Layout.createSequentialGroup()
+                                    .addComponent(brandLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(brand, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(61, 61, 61)
+                            .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(boardLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(yearLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGap(23, 23, 23)
+                            .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(board, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addContainerGap()))
+        );
+        cadVeiculo2Layout.setVerticalGroup(
+            cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cadVeiculo2Layout.createSequentialGroup()
+                .addContainerGap(130, Short.MAX_VALUE)
+                .addComponent(modelLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(descriptionLabel)
+                    .addComponent(colorLabel)
+                    .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
+            .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadVeiculo2Layout.createSequentialGroup()
+                    .addContainerGap(52, Short.MAX_VALUE)
+                    .addComponent(vehicleLabel)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(brand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(brandLabel))
+                        .addComponent(board, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(cadVeiculo2Layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(boardLabel)))
+                    .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(cadVeiculo2Layout.createSequentialGroup()
+                            .addGap(14, 14, 14)
+                            .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(cadVeiculo2Layout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(yearLabel)
+                                .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGap(123, 123, 123)
+                    .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(cadVeiculo2Layout.createSequentialGroup()
+                            .addGap(4, 4, 4)
+                            .addComponent(sizeLabel))
+                        .addComponent(pequeno)
+                        .addComponent(medio)
+                        .addComponent(grande))
+                    .addContainerGap()))
+        );
+
+        birth.setEditable(false);
+        birth.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        birth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                birthActionPerformed(evt);
+            }
+        });
+
+        jCheckEditar.setText("jCheckBox1");
+        jCheckEditar.setEnabled(false);
+
+        javax.swing.GroupLayout cadClienteLayout = new javax.swing.GroupLayout(cadCliente);
+        cadCliente.setLayout(cadClienteLayout);
+        cadClienteLayout.setHorizontalGroup(
+            cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cadClienteLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cadClienteLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(concluirPessoa)
+                        .addGap(36, 36, 36)
+                        .addComponent(limparPessoa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jCheckEditar)
+                        .addGap(30, 30, 30))
+                    .addGroup(cadClienteLayout.createSequentialGroup()
+                        .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cadClienteLayout.createSequentialGroup()
+                                    .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(cadClienteLayout.createSequentialGroup()
+                                            .addComponent(nameLabel)
+                                            .addGap(16, 16, 16)
+                                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(21, 21, 21)
+                                            .addComponent(rgLabel))
+                                        .addGroup(cadClienteLayout.createSequentialGroup()
+                                            .addComponent(birthLabel)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(birth, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(cpfLabel)))
+                                    .addGap(10, 10, 10)
+                                    .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(rg, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cadClienteLayout.createSequentialGroup()
+                                    .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(phone1Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(cadClienteLayout.createSequentialGroup()
+                                            .addComponent(phone1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(phone2Label)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(phone2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cadVeiculo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(56, Short.MAX_VALUE))))
+        );
+        cadClienteLayout.setVerticalGroup(
+            cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cadClienteLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nameLabel))
+                    .addGroup(cadClienteLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(rgLabel))
+                    .addGroup(cadClienteLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(rg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(14, 14, 14)
+                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(birthLabel)
+                        .addComponent(birth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cpfLabel)
+                        .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(11, 11, 11)
+                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cadClienteLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(addressLabel))
+                    .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cadClienteLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(phone2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(phone2Label)
+                            .addComponent(phone1Label)))
+                    .addGroup(cadClienteLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(phone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cadVeiculo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(concluirPessoa)
+                    .addComponent(limparPessoa)
+                    .addComponent(jCheckEditar))
+                .addGap(25, 25, 25))
+        );
+
+        jTabFuncionário.addTab("Cliente", cadCliente);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cards, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+            .addComponent(jTabFuncionário)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cards, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jTabFuncionário)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botCadastrarClienteActionPerformed
-        CardLayout cl = (CardLayout)cards.getLayout();
-        this.setSize(500, 700);
-        cl.show(cards, "card2");
-        cards.setSize(460, 500);
-    }//GEN-LAST:event_botCadastrarClienteActionPerformed
-
-    private void botCadastrarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botCadastrarVeiculoActionPerformed
-        CardLayout cl = (CardLayout)cards.getLayout();
-        cl.show(cards, "card3");
-        cards.setSize(400, 350);
-    }//GEN-LAST:event_botCadastrarVeiculoActionPerformed
-
-    private void botDiagnosticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botDiagnosticoActionPerformed
+    private void year2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_year2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botDiagnosticoActionPerformed
-
-    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
-        this.setVisible(false);
-        menuP.setVisible(true);
-    }//GEN-LAST:event_voltarActionPerformed
-    
-    private void concluirVeículoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concluirVeículoActionPerformed
-        ArrayList clientes = (ArrayList<Customer>)c.getCustomers();
-        Customer p = c.procuraPessoa(owner.getText());
-        if(p == null)
-        {
-            JOptionPane.showMessageDialog(null, "Cliente não cadastrado!", "Error", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Veículo cadastrado com sucesso!", "Cadastro de veículo", JOptionPane.INFORMATION_MESSAGE);
-            return;
-        }
-    }//GEN-LAST:event_concluirVeículoActionPerformed
-
-    private void concluirPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concluirPessoaActionPerformed
-        c.criaPessoa(name.getText(), rg.getText(), cpf.getText(),
-            dia.getText(), mes.getText(), ano.getText(),
-            address.getText(), phone1.getText(), phone2.getText());
-    }//GEN-LAST:event_concluirPessoaActionPerformed
-    
-    private void mesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mesActionPerformed
-
-    private void diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_diaActionPerformed
-
-    private void phone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phone1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_phone1ActionPerformed
-
-    private void addressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addressActionPerformed
-
-    private void phone2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phone2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_phone2ActionPerformed
-
-    private void ownerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ownerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ownerActionPerformed
-
-    private void brand1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brand1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_brand1ActionPerformed
-
-    private void model1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_model1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_model1ActionPerformed
-
-    private void board1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_board1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_board1ActionPerformed
-
-    private void medio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medio1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_medio1ActionPerformed
-
-    private void year1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_year1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_year1ActionPerformed
-
-    private void brand2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brand2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_brand2ActionPerformed
-
-    private void model2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_model2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_model2ActionPerformed
-
-    private void board2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_board2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_board2ActionPerformed
+    }//GEN-LAST:event_year2ActionPerformed
 
     private void medio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medio2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_medio2ActionPerformed
 
-    private void year2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_year2ActionPerformed
+    private void board2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_board2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_year2ActionPerformed
+    }//GEN-LAST:event_board2ActionPerformed
 
-    private void cancelarPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarPessoaActionPerformed
-        CardLayout cl = (CardLayout)cards.getLayout();
-        cl.show(cards, "card1");
-        cards.setSize(300, 400);
-    }//GEN-LAST:event_cancelarPessoaActionPerformed
+    private void model2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_model2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_model2ActionPerformed
 
+    private void brand2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brand2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_brand2ActionPerformed
+
+    private void ownerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ownerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ownerActionPerformed
+
+    private void concluirVeículoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concluirVeículoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_concluirVeículoActionPerformed
+
+    private void yearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yearActionPerformed
+
+    private void medioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medioActionPerformed
+        concluirPessoaActionPerformed(evt);
+    }//GEN-LAST:event_medioActionPerformed
+
+    private void boardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boardActionPerformed
+        concluirPessoaActionPerformed(evt);
+    }//GEN-LAST:event_boardActionPerformed
+
+    private void modelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modelActionPerformed
+        concluirPessoaActionPerformed(evt);
+    }//GEN-LAST:event_modelActionPerformed
+
+    private void brandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brandActionPerformed
+        concluirPessoaActionPerformed(evt);
+    }//GEN-LAST:event_brandActionPerformed
+
+    private void concluirPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concluirPessoaActionPerformed
+        Customer p = c.procuraPessoa(evt.getSource().toString());
+        
+        if(address.getText().equals("") || phone1.getText().equals("")
+           || phone2.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "Digite todas as informações para continuar",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        if(jCheckEditar.isSelected()) //Editar
+        {
+            p.setAddress(address.getText());
+            p.setPhone1(phone1.getText());
+            p.setPhone2(phone2.getText());
+        }
+        else //Cadastrar
+        {
+            int size;
+            if(pequeno.isSelected())
+                size = 1;
+            else if(medio.isSelected())
+                size = 2;
+            else //grande.isSelected())
+                size = 3;
+            
+            c.criaPessoa(name.getText(), rg.getText(), cpf.getText(),
+                    birth.getText(), address.getText(), phone1.getText(),
+                    phone2.getText());
+            p.adicionaVeiculo(brand.getText(), board.getText(), model.getText(),
+                    year.getText(), description.getText(), color.getText(),
+                    size);
+        }
+        limparPessoaActionPerformed(evt);
+    }//GEN-LAST:event_concluirPessoaActionPerformed
+
+    private void phone2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phone2ActionPerformed
+        concluirPessoaActionPerformed(evt);
+    }//GEN-LAST:event_phone2ActionPerformed
+
+    private void phone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phone1ActionPerformed
+        concluirPessoaActionPerformed(evt);
+    }//GEN-LAST:event_phone1ActionPerformed
+
+    private void addressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressActionPerformed
+        concluirPessoaActionPerformed(evt);
+    }//GEN-LAST:event_addressActionPerformed
+
+    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
+        JOptionPane.showMessageDialog(null, name.getText(), "WEy", JOptionPane.INFORMATION_MESSAGE);
+        
+        Customer p = c.procuraPessoa(name.getText());
+        name.setEditable(false);
+        
+        this.address.setEditable(true);
+        this.phone1.setEditable(true);
+        this.phone2.setEditable(true);
+        if(p == null)
+        {
+            this.rg.setEditable(true);
+            this.cpf.setEditable(true);
+            this.birth.setEditable(true);
+            this.brand.setEditable(true);
+            this.board.setEditable(true);
+            this.model.setEditable(true);
+            this.year.setEditable(true);
+            this.color.setEditable(true);
+            this.description.setEditable(true);
+        }
+        else
+        {
+            this.jCheckEditar.doClick(); //Liga a flag "editar"
+            
+            this.rg.setText(p.rg);
+            this.cpf.setText(p.cpf);
+            this.address.setText(p.address);
+            this.birth.setText(p.dateOfBirth);
+            this.brand.setText(p.vehiclesOfCustomer.get(0).getBrand());
+            this.board.setText(p.vehiclesOfCustomer.get(0).getBoard());
+            this.model.setText(p.vehiclesOfCustomer.get(0).getModel());
+            this.year.setText(p.vehiclesOfCustomer.get(0).getYear());
+            this.color.setText(p.vehiclesOfCustomer.get(0).getColor());
+            this.description.setText(p.vehiclesOfCustomer.get(0).getDescription());
+        }
+    }//GEN-LAST:event_nameActionPerformed
+
+    private void descriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_descriptionActionPerformed
+
+    private void birthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthActionPerformed
+        concluirPessoaActionPerformed(evt);
+    }//GEN-LAST:event_birthActionPerformed
+
+    private void limparPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparPessoaActionPerformed
+        this.name.setEditable(true);
+        this.rg.setEditable(true);
+        this.cpf.setEditable(true);
+        this.birth.setEditable(true);
+        this.address.setEditable(true);
+        this.phone1.setEditable(true);
+        this.phone2.setEditable(true);
+        this.brand.setEditable(true);
+        this.board.setEditable(true);
+        this.model.setEditable(true);
+        this.year.setEditable(true);
+        this.color.setEditable(true);
+        this.description.setEditable(true);
+        
+        this.name.setText("");
+        this.rg.setText("");
+        this.cpf.setText("");
+        this.address.setText("");
+        this.birth.setText("");
+        this.phone1.setText("");
+        this.phone2.setText("");
+        this.brand.setText("");
+        this.board.setText("");
+        this.model.setText("");
+        this.year.setText("");
+        this.color.setText("");
+        this.description.setText("");  
+    }//GEN-LAST:event_limparPessoaActionPerformed
+
+    private void rgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rgActionPerformed
+        concluirPessoaActionPerformed(evt);
+    }//GEN-LAST:event_rgActionPerformed
+
+    private void cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfActionPerformed
+        concluirPessoaActionPerformed(evt);
+    }//GEN-LAST:event_cpfActionPerformed
+
+    private void pequenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pequenoActionPerformed
+        concluirPessoaActionPerformed(evt);
+    }//GEN-LAST:event_pequenoActionPerformed
+
+    private void grandeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grandeActionPerformed
+        concluirPessoaActionPerformed(evt);
+    }//GEN-LAST:event_grandeActionPerformed
+
+    private void colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorActionPerformed
+        concluirPessoaActionPerformed(evt);
+    }//GEN-LAST:event_colorActionPerformed
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel PanelVehicle1;
-    private javax.swing.JPanel PanelVehicle2;
+    private javax.swing.JPanel PanelVehicle4;
     private javax.swing.JTextField address;
     private javax.swing.JLabel addressLabel;
-    private javax.swing.JTextField ano;
-    private javax.swing.JLabel anoLabel2;
+    private javax.swing.JFormattedTextField birth;
     private javax.swing.JLabel birthLabel;
-    private javax.swing.JTextField board1;
+    private javax.swing.JTextField board;
     private javax.swing.JTextField board2;
-    private javax.swing.JLabel boardLabel1;
+    private javax.swing.JLabel boardLabel;
     private javax.swing.JLabel boardLabel2;
-    private javax.swing.JButton botCadastrarCliente;
-    private javax.swing.JButton botCadastrarVeiculo;
-    private javax.swing.JButton botColocarNaFila;
-    private javax.swing.JButton botDiagnostico;
-    private javax.swing.JButton botEditar;
-    private javax.swing.JButton botLavar;
-    private javax.swing.JTextField brand1;
+    private javax.swing.JTextField brand;
     private javax.swing.JTextField brand2;
-    private javax.swing.JLabel brandLabel1;
+    private javax.swing.JLabel brandLabel;
     private javax.swing.JLabel brandLabel2;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPanel cadCliente;
     private javax.swing.JPanel cadVeiculo;
-    private javax.swing.JButton cancelarPessoa;
+    private javax.swing.JPanel cadVeiculo2;
     private javax.swing.JButton cancelarVeículo;
-    private javax.swing.JPanel cards;
+    private javax.swing.JTextField color;
+    private javax.swing.JLabel colorLabel;
     private javax.swing.JButton concluirPessoa;
     private javax.swing.JButton concluirVeículo;
     private javax.swing.JTextField cpf;
     private javax.swing.JLabel cpfLabel;
-    private javax.swing.JTextField description1;
+    private javax.swing.JTextField description;
     private javax.swing.JTextField description2;
-    private javax.swing.JLabel descriptionLabel1;
+    private javax.swing.JLabel descriptionLabel;
     private javax.swing.JLabel descriptionLabel2;
-    private javax.swing.JTextField dia;
-    private javax.swing.JRadioButton grande1;
+    private javax.swing.JRadioButton grande;
     private javax.swing.JRadioButton grande2;
-    private javax.swing.JRadioButton medio1;
+    private javax.swing.JCheckBox jCheckEditar;
+    private javax.swing.JTabbedPane jTabFuncionário;
+    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JButton limparPessoa;
+    private javax.swing.JRadioButton medio;
     private javax.swing.JRadioButton medio2;
-    private javax.swing.JPanel menuF;
-    private javax.swing.JTextField mes;
-    private javax.swing.JTextField model1;
+    private javax.swing.JTextField model;
     private javax.swing.JTextField model2;
-    private javax.swing.JLabel modelLabel1;
+    private javax.swing.JLabel modelLabel;
     private javax.swing.JLabel modelLabel2;
     private javax.swing.JTextField name;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField owner;
     private javax.swing.JLabel ownerLabel;
-    private javax.swing.JRadioButton pequeno1;
+    private javax.swing.JRadioButton pequeno;
     private javax.swing.JRadioButton pequeno2;
     private javax.swing.JTextField phone1;
     private javax.swing.JLabel phone1Label;
@@ -911,13 +932,13 @@ public class MenuFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel phone2Label;
     private javax.swing.JTextField rg;
     private javax.swing.JLabel rgLabel;
-    private javax.swing.JLabel sizeLabel1;
+    private javax.swing.JLabel sizeLabel;
     private javax.swing.JLabel sizeLabel2;
-    private javax.swing.JLabel vehicleLabel1;
+    private javax.swing.JLabel vehicleLabel;
     private javax.swing.JLabel vehicleLabel2;
-    private javax.swing.JButton voltar;
-    private javax.swing.JTextField year1;
+    private javax.swing.JTextField year;
     private javax.swing.JTextField year2;
+    private javax.swing.JLabel yearLabel;
     private javax.swing.JLabel yearLabel2;
     // End of variables declaration//GEN-END:variables
 
