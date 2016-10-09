@@ -1,0 +1,12 @@
+Marca: Nissan	Modelo: N1
+Placa: WEY-1234	Ano: 2016	Cor: Laranja
+Data de cadastro: 09/10/2016 20:45:05
+Descrição: Belo carro
+___________________________________________
+
+Marca: 	Modelo: 
+Placa: WEY	Ano: 	Cor: 
+Data de cadastro: 09/10/2016 20:45:21
+Descrição: 
+___________________________________________
+
