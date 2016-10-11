@@ -26,8 +26,15 @@ public abstract class Service implements Serializable{
     }
     
     abstract public double executar();
-    abstract public String estimarTempoDeEspera();
+    abstract public String estimarTempoDeEspera(Vehicle v);
 
+    public boolean estaNaFila(Vehicle v)
+    {
+        for(int i = 0; i < fila.size(); i++)
+            if(v == fila.get(i))
+                return true;
+        return false;
+    }
     public void setPrices(double s, double m, double b)
     {
         priceSmall = s;

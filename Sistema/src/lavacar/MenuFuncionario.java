@@ -127,7 +127,6 @@ public class MenuFuncionario extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -223,9 +222,7 @@ public class MenuFuncionario extends javax.swing.JFrame {
                             .addGroup(exeServicoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(adicionarNaFila, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(removerDaFila, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(exeServicoLayout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(lavarFila, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lavarFila, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, exeServicoLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(80, 80, 80)))
@@ -486,7 +483,7 @@ public class MenuFuncionario extends javax.swing.JFrame {
                 .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cadVeiculo2Layout.createSequentialGroup()
                         .addComponent(description, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(52, Short.MAX_VALUE))
+                        .addContainerGap(88, Short.MAX_VALUE))
                     .addGroup(cadVeiculo2Layout.createSequentialGroup()
                         .addGroup(cadVeiculo2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(descriptionLabel)
@@ -642,9 +639,8 @@ public class MenuFuncionario extends javax.swing.JFrame {
                 .addGap(73, 73, 73)
                 .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
-                    .addGroup(cadClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
-                        .addComponent(jSeparator2)))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+                    .addComponent(jSeparator2))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         cadClienteLayout.setVerticalGroup(
@@ -788,7 +784,7 @@ public class MenuFuncionario extends javax.swing.JFrame {
         PanelVehicle4Layout.setHorizontalGroup(
             PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelVehicle4Layout.createSequentialGroup()
-                .addContainerGap(255, Short.MAX_VALUE)
+                .addContainerGap(289, Short.MAX_VALUE)
                 .addComponent(colorLabel2)
                 .addGap(27, 27, 27)
                 .addComponent(color2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -850,7 +846,7 @@ public class MenuFuncionario extends javax.swing.JFrame {
                 .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(colorLabel2)
                     .addComponent(color2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
             .addGroup(PanelVehicle4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelVehicle4Layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

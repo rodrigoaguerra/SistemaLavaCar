@@ -58,11 +58,11 @@ public class Lavagem extends Service implements Serializable{
         fila.remove(0);
         return valor;
     }
-    public String estimarTempoDeEspera()
+    public String estimarTempoDeEspera(Vehicle v)
     {
         int min=0,
             size;
-        for(int i=0; i < fila.size(); i++)
+        for(int i=0; i < fila.indexOf(v) && i < fila.size(); i++)
         {
             size = fila.get(i).getSize();
             if(size==1)
