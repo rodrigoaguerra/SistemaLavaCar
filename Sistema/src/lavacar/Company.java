@@ -62,6 +62,11 @@ public class Company {
         MenuPrincipal menu = new MenuPrincipal(this);
         menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         menu.setVisible(true);
+
+	/* Executa as partes referentes ao gerente, 
+	que não deu tempo de passar para a interface */
+	interf.menuGerente();
+	this.executarGerente();
     }
     
     public void encerrar() 
@@ -136,10 +141,10 @@ public class Company {
 //                break;
         return false;
     }
-    public boolean executarGerente(int opcao)
+    public boolean executarGerente()
     {
         Scanner input = new Scanner(System.in);
-        
+        opcao = input.nextInt();
         int answer;
         switch(opcao)
         {

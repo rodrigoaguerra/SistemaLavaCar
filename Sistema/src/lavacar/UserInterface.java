@@ -5,20 +5,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
-    public void menuFuncionario()
-    {
-        System.out.println("");
-        System.out.println("\n\tFUNCIONARIO");
+//    public void menuFuncionario()
+//    {
+//        System.out.println("");
+//        System.out.println("\n\tFUNCIONARIO");
 //        System.out.println("(1) Cadastrar cliente");
 //        System.out.println("(2) Cadastrar veículo");
-        System.out.println("(3) Lavar o próximo");
-        System.out.println("(4) Colocar na fila");
-        System.out.println("(5) Estimativa do tempo de espera");
-        System.out.println("(6) Diagnóstico do veículo");
+//        System.out.println("(3) Lavar o próximo");
+//        System.out.println("(4) Colocar na fila");
+//        System.out.println("(5) Estimativa do tempo de espera");
+//        System.out.println("(6) Diagnóstico do veículo");
 //        System.out.println("(7) Editar cliente");
 //        System.out.println("(8) Editar veiculo");
-        System.out.println("(0) Sair");
-    }
+//        System.out.println("(0) Sair");
+//    }
     public void menuGerente()
     {
         System.out.println("");

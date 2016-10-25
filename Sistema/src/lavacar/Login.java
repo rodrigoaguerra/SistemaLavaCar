@@ -125,7 +125,7 @@ public class Login extends javax.swing.JFrame {
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
         MenuFuncionario menuF = new MenuFuncionario(c, menuP, c.getService().getFila());
 
-        if(user.getText().equals("Bob") && new String(senha.getPassword()).equals("marley"))
+        if(user.getText().equals("Michael") && new String(senha.getPassword()).equals("Jackson"))
         {
             this.setVisible(false);
             menuF.setLocationRelativeTo(null);
