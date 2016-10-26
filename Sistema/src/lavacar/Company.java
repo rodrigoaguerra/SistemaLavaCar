@@ -1,7 +1,6 @@
 
 package lavacar;
 
-import java.awt.CardLayout;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -65,8 +64,8 @@ public class Company {
 
 	/* Executa as partes referentes ao gerente, 
 	que não deu tempo de passar para a interface */
-	interf.menuGerente();
 	this.executarGerente();
+        encerrar();
     }
     
     public void encerrar() 
@@ -132,75 +131,70 @@ public class Company {
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     
-    
-    public boolean executarFuncionario(int opcao)
-    {
-//            case 5:
-//                String tempo = getService().estimarTempoDeEspera();
-//                System.out.println(tempo);
-//                break;
-        return false;
-    }
     public boolean executarGerente()
     {
-        Scanner input = new Scanner(System.in);
-        opcao = input.nextInt();
+        Scanner input = new Scanner(System.in);        
         int answer;
-        switch(opcao)
+        while(1==1)
         {
-            case 1:
-                cadastrarFuncionario();
-                break;
-            case 2:
-                System.out.println("(1) Clientes");
-                System.out.println("(2) Funcionários");
-                System.out.println("(3) Todos os veículos");
-                System.out.println("(4) Veículos de um cliente");
-                System.out.println("(0) Voltar");
-                answer = input.nextInt();
-                interf.mostrarDados(answer, customers, employees);
-                break;
-            case 3:
-                System.out.println("(1) Diário / Encerra dia");
-                System.out.println("(2) Mensal / Encerra mes");
-                System.out.println("(3) Anual / Encerra ano");
-                answer = input.nextInt();
-                gerarRelatorio(answer);
-                break;
-            case 4:
-                String rel = estoque.gerarRelatorio();
-                System.out.println(rel);
-                break;
-            case 5:
-                System.out.println("Quantidade de cada insumo comprado");
-                System.out.print("Sabao: ");
-                int sabao = input.nextInt();
-                System.out.print("Esponjas: ");
-                int esponjas = input.nextInt();
-                System.out.print("Panos: ");
-                int panos = input.nextInt();
-                estoque.adicionar(sabao, esponjas, panos);
-                double valorGasto = sabao*estoque.getPrecoSabao() +
-                                    esponjas*estoque.getEsponjas() +
-                                    panos*estoque.getPanos();
-                finanças.caixaOut(valorGasto, 1);
-                break;
-            case 6:
-                System.out.println("  Digite os novos preços");
-                System.out.print("Veículos pequenos: ");
-                double prcSmall = input.nextDouble();
-                System.out.print("Veículos médios: ");
-                double prcMed = input.nextDouble();
-                System.out.print("Veículos grandes: ");
-                double prcBig = input.nextDouble();
-                getService().setPrices(prcSmall, prcMed, prcBig);
-                break;
-            case 0:
-                return true;
-            default:
-                System.out.println("Opçao inválida");
+            interf.menuGerente();
+            answer = input.nextInt();
+
+            switch(answer)
+            {
+                case 1:
+                    cadastrarFuncionario();
+                    break;
+                case 2:
+                    System.out.println("(1) Clientes");
+                    System.out.println("(2) Funcionários");
+                    System.out.println("(3) Todos os veículos");
+                    System.out.println("(4) Veículos de um cliente");
+                    System.out.println("(0) Sair");
+                    answer = input.nextInt();
+                    interf.mostrarDados(answer, customers, employees);
+                    break;
+                case 3:
+                    System.out.println("(1) Diário / Encerra dia");
+                    System.out.println("(2) Mensal / Encerra mes");
+                    System.out.println("(3) Anual / Encerra ano");
+                    answer = input.nextInt();
+                    gerarRelatorio(answer);
+                    break;
+                case 4:
+                    String rel = estoque.gerarRelatorio();
+                    System.out.println(rel);
+                    break;
+                case 5:
+                    System.out.println("Quantidade de cada insumo comprado");
+                    System.out.print("Sabao: ");
+                    int sabao = input.nextInt();
+                    System.out.print("Esponjas: ");
+                    int esponjas = input.nextInt();
+                    System.out.print("Panos: ");
+                    int panos = input.nextInt();
+                    estoque.adicionar(sabao, esponjas, panos);
+                    double valorGasto = sabao*estoque.getPrecoSabao() +
+                                        esponjas*estoque.getEsponjas() +
+                                        panos*estoque.getPanos();
+                    finanças.caixaOut(valorGasto, 1);
+                    break;
+                case 6:
+                    System.out.println("  Digite os novos preços");
+                    System.out.print("Veículos pequenos: ");
+                    double prcSmall = input.nextDouble();
+                    System.out.print("Veículos médios: ");
+                    double prcMed = input.nextDouble();
+                    System.out.print("Veículos grandes: ");
+                    double prcBig = input.nextDouble();
+                    getService().setPrices(prcSmall, prcMed, prcBig);
+                    break;
+                case 0:
+                    return true;
+                default:
+                    System.out.println("Opçao inválida");
+            }
         }
-        return false;
     }
     public void cadastrarFuncionario()
     {
@@ -234,70 +228,7 @@ public class Company {
         employees.add(person);
         System.out.println("Funcionario contratado com sucesso!");
     }
-
-    public void editarDados(int opcao)
-    {
-        Scanner input = new Scanner(System.in);
-        switch(opcao)
-        {
-            case 1:
-                System.out.print("Digite o nome do cliente: ");
-                String name = input.nextLine();
-                String address, phone1, phone2;
-                for(Customer p : customers)
-                    if(name.equals(p.getName()))
-                    {
-                        System.out.print("Digite o endereço: ");
-                        address = input.nextLine();
-                        System.out.print("Digite o telefone1: ");
-                        phone1 = input.nextLine();
-                        System.out.print("Digite o telefone2: ");
-                        phone2 = input.nextLine();
-                        p.setAddress(address);
-                        p.setPhone1(phone1);
-                        p.setPhone2(phone2);
-                        break;
-                    }
-                break;
-            case 2:
-                System.out.print("Digite a placa do veículo a ser alterado: ");
-                String board = input.nextLine();
-                String color, description;
-                for(Customer p : customers)
-                    for(Vehicle v : p.vehiclesOfCustomer)
-                        if(board.equals(v.getBoard()))
-                        {
-                            System.out.print("Digite a cor do veiculo: ");
-                            color = input.nextLine();
-                            System.out.print("Digite a descrição: ");
-                            description = input.nextLine();
-                            v.setColor(color);
-                            v.setDescription(description);
-                        }
-                break;
-            case 3:
-                System.out.print("Digite o nome do funcionário: ");
-                name = input.nextLine();
-                for(Employee p : employees)
-                    if(name.equals(p.getName()))
-                    {
-                        System.out.print("Digite o endereço: ");
-                        address = input.nextLine();
-                        System.out.print("Digite o telefone1: ");
-                        phone1 = input.nextLine();
-                        System.out.print("Digite o telefone2: ");
-                        phone2 = input.nextLine();
-                        p.setAddress(address);
-                        p.setPhone1(phone1);
-                        p.setPhone2(phone2);
-                    }
-                break;
-            case 0:
-                break;
-            default:
-                System.out.println("Opcao inválida");
-        }
-    }
+    
     public void gerarRelatorio(int opcao)
     {
         Calendar c = Calendar.getInstance();
@@ -394,8 +325,6 @@ public class Company {
                 return "Dezembro";
         }
     }
-
-    
     
     /* Os getters são esses mesmos */
     public String getName_company() { return name_company; }
@@ -404,5 +333,4 @@ public class Company {
     public String getSite_company() { return site_company; }
     public String getCnpj() { return cnpj; }
     public Service getService() { return lavagem; }
-    public ArrayList getCustomers() { return customers; }
 }

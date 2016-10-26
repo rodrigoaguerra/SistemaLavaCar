@@ -1,6 +1,5 @@
 package lavacar;
 
-import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {

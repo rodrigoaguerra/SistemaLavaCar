@@ -12,7 +12,7 @@ public abstract class Service implements Serializable{
     protected int[] servDia;
     protected int[] servMes;
     protected ArrayList<Vehicle> fila;
-    protected Estoque insumos;
+    protected Estoque estoque;
 
     public Service(String n, double vs, double vm, double vb)
     {
@@ -60,7 +60,7 @@ public abstract class Service implements Serializable{
     public ArrayList<Vehicle> getFila() { return fila; }    
     public void setEstoque(Estoque i)
     {
-        insumos = i;
+        estoque = i;
     }
-    public Estoque getEstoque() { return insumos; }
+    public Estoque getEstoque() { return estoque; }
 }

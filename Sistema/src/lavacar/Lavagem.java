@@ -43,18 +43,18 @@ public class Lavagem extends Service implements Serializable{
             panos = 5;
         }
 
-        //Vê se pode lavar com os insumos do estoque
-        if(sabao > insumos.getSabao() || esponjas > insumos.getEsponjas() ||
-           panos > insumos.getPanos())
+        //Vê se pode lavar com os ítens do estoque
+        if(sabao > estoque.getSabao() || esponjas > estoque.getEsponjas() ||
+           panos > estoque.getPanos())
         {
-            System.out.println("Faltam insumos.");
+            System.out.println("Falta material.");
             return 0;
         }
         
         Calendar c = Calendar.getInstance();
         servDia[c.get(Calendar.DAY_OF_MONTH)-1]++;
         servMes[c.get(Calendar.MONTH)]++;
-        insumos.descontar(sabao, esponjas, panos);
+        estoque.descontar(sabao, esponjas, panos);
         fila.remove(0);
         return valor;
     }
