@@ -1,4 +1,4 @@
 INSUMOS
-Sabão: 98
-Esponjas: 96
-Panos: 96
+Sabão: 90
+Esponjas: 74
+Panos: 71

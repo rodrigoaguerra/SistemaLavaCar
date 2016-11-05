@@ -1269,6 +1269,7 @@ public class MenuFuncionario extends javax.swing.JFrame {
         {
             c.getService().getFila().remove(list.getSelectedIndex());
             listModel.remove(list.getSelectedIndex());
+            list.setModel(listModel);
         }
     }//GEN-LAST:event_removerDaFilaActionPerformed
 
@@ -1278,8 +1279,15 @@ public class MenuFuncionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Adicione veículos na fila para"
                     + "lavá-los!", "Error", JOptionPane.ERROR_MESSAGE);
         else //Se tem veículos na fila
-            c.getService().executar();
-        //tem que remover do sistema e da interface
+        {
+            System.out.println("FODASE");
+            double valor = c.getService().executar();
+            c.caixaIn(valor);
+            //O método executar() do Service já tira da fila do sistema
+            //mas ainda precisamos tirar da interface
+            listModel.remove(0);
+            list.setModel(listModel);
+        }
     }//GEN-LAST:event_lavarFilaActionPerformed
 
     private void diagnosticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosticoActionPerformed

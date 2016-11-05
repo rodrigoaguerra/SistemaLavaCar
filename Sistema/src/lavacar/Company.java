@@ -175,8 +175,8 @@ public class Company {
                     int panos = input.nextInt();
                     estoque.adicionar(sabao, esponjas, panos);
                     double valorGasto = sabao*estoque.getPrecoSabao() +
-                                        esponjas*estoque.getEsponjas() +
-                                        panos*estoque.getPanos();
+                                        esponjas*estoque.getPrecoEsponja() +
+                                        panos*estoque.getPrecoPano();
                     finanças.caixaOut(valorGasto, 1);
                     break;
                 case 6:
@@ -194,6 +194,7 @@ public class Company {
                 default:
                     System.out.println("Opçao inválida");
             }
+            System.out.println("Valor gasto: " + this.finanças.getGastosEstoque());
         }
     }
     public void cadastrarFuncionario()
@@ -227,6 +228,11 @@ public class Company {
                                       address, phone1, phone2, payment); 
         employees.add(person);
         System.out.println("Funcionario contratado com sucesso!");
+    }
+    
+    public void caixaIn(double valor)
+    {
+        this.finanças.caixaIn(valor);
     }
     
     public void gerarRelatorio(int opcao)
