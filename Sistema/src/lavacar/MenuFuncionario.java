@@ -1255,7 +1255,7 @@ public class MenuFuncionario extends javax.swing.JFrame {
         {
             /* Adiciona no sistema, na interface e atualiza */
             c.getService().getFila().add(v);
-            listModel.add(0, boardFila.getText());
+            listModel.add(listModel.getSize(), boardFila.getText());
             list.setModel(listModel);
         }
     }//GEN-LAST:event_adicionarNaFilaActionPerformed
