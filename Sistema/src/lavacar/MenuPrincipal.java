@@ -71,7 +71,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Geb\\Documents\\Gabriel\\Análise e Projeto de Sistemas (Rita)\\SistemaLavaCar\\logomarca-lava-jato.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Geb\\Documents\\Gabriel\\Análise e Projeto de Sistemas (Rita)\\SistemaLavaCar\\Sistema\\data\\logomarca-lava-jato.jpg")); // NOI18N
         jLabel2.setText("LavaCarT");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel2.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
